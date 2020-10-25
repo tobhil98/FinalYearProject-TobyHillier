@@ -8,5 +8,5 @@
 | [Gazebo](http://gazebosim.org/)       | x         |
 | [rFpro](http://www.rfpro.com/)        | x         |
 | [CrowdSim3D](https://crowdsim3d.com/) | x         |
-|                                       |           |
+| [Udacity](https://github.com/udacity/self-driving-car-sim)|x           |
 |                                       |           |
