@@ -1,7 +1,16 @@
 # MastersProject---Mixed-Traffic-Simulation
 
 ### TODO:
-#### Simulators Found:
+#### Simulators to focus on:
+| Simulator                             | Tried out |
+|---------------------------------------|-----------|
+| [Carla](https://carla.org/)           | Trying out now         |
+| [Gazebo](http://gazebosim.org/)       | x         |
+| [AirSim](https://github.com/microsoft/AirSim)|x           |
+
+Look at [Roadrunner](https://www.mathworks.com/products/roadrunner.html)
+
+#### Simulators found:
 | Simulator                             | Tried out |
 |---------------------------------------|-----------|
 | [Carla](https://carla.org/)           | Trying out now         |
@@ -23,9 +32,3 @@
 |[Autoware](https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto)  |x           |
 |[LGSVL](https://github.com/lgsvl/simulator)  |x           |
 |[Sumo](https://github.com/eclipse/sumo)  |x           |
-
-
-
-
-
-Look at [Roadrunner](https://www.mathworks.com/products/roadrunner.html)
