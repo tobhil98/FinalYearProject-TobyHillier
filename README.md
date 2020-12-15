@@ -6,7 +6,7 @@
 |---------------------------------------|-----------|
 | [Carla](https://carla.org/)           | Trying out now         |
 | [Gazebo](http://gazebosim.org/)       | x         |
-| [AirSim](https://github.com/microsoft/AirSim)|x           |
+| [AirSim](https://github.com/microsoft/AirSim)| Trying out now             |
 
 Look at [Roadrunner](https://www.mathworks.com/products/roadrunner.html)
 
