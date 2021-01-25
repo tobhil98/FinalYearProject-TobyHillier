@@ -54,7 +54,19 @@
 \usepackage{latexsym}
 \usepackage{etoolbox}
 
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+
 \usepackage{enumerate} % for numbering with [a)] format 
+
+\bibpunct{[}{]}{,}{n}{,}{,}
+
+
+%%% HEAD %%%
+\fancyhf{}
+\fancyhead[R]{\leftmark}
+\usepackage{lastpage}
+\fancyfoot[C]{\thepage} %/\pageref{LastPage}}
 
 
 
@@ -114,11 +126,11 @@
 
 \setlength{\parindent}{0em}  % indentation of paragraph
 
-\setlength{\headheight}{14.5pt}
+%\setlength{\headheight}{14.5pt}
 \pagestyle{fancy}
-\fancyfoot[ER,OL]{\thepage}%Page no. in the left on
+%\fancyfoot[ER,OL]{\thepage}%Page no. in the left on
                                 %odd pages and on right on even pages
-\fancyfoot[OC,EC]{\sffamily }
+%\fancyfoot[OC,EC]{\sffamily }
 \renewcommand{\headrulewidth}{0.1pt}
 \renewcommand{\footrulewidth}{0.1pt}
 \captionsetup{margin=10pt,font=small,labelfont=bf}
@@ -126,31 +138,31 @@
 
 %--- chapter heading
 
-\def\@makechapterhead#1{%
-  \vspace*{10\p@}%
-  {\parindent \z@ \raggedright %\sffamily
-        %{\Large \MakeUppercase{\@chapapp} \space \thechapter}
-        %\\
-        %\hrulefill
+%\def\@makechapterhead#1{%
+%  \vspace*{10\p@}%
+%  {\parindent \z@ \raggedright %\sffamily
+%        %{\Large \MakeUppercase{\@chapapp} \space \thechapter}
+%        %\\
+%        %\hrulefill
         %\par\nobreak
         %\vskip 10\p@
-    \interlinepenalty\@M
-    \Huge \bfseries 
-    \thechapter \space\space #1\par\nobreak
-    \vskip 30\p@
-  }}
+%    \interlinepenalty\@M
+%    \Huge \bfseries 
+%    \thechapter \space\space #1\par\nobreak
+%    \vskip 30\p@
+%  }}
 
 %---chapter heading for \chapter*  
-\def\@makeschapterhead#1{%
-  \vspace*{10\p@}%
-  {\parindent \z@ \raggedright
-    \sffamily
-    \interlinepenalty\@M
-    \Huge \bfseries  
-    #1\par\nobreak
-    \vskip 30\p@
-  }}
-  
+%\def\@makeschapterhead#1{%
+%  \vspace*{10\p@}%
+%  {\parindent \z@ \raggedright
+%    \sffamily
+%    \interlinepenalty\@M
+%    \Huge \bfseries  
+%    #1\par\nobreak
+%    \vskip 30\p@
+%  }}
+ 
 
 
 
