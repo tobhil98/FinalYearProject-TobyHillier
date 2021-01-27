@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[11pt,oneside]{report}
 
 \usepackage[nottoc]{tocbibind}
 
@@ -27,48 +27,48 @@
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% Main document
-\section{Introduction}
+\chapter{Introduction}
 test
 \cite{10.1145/1497577.1497578}
 
-\section{Project Specification}
+\chapter{Project Specification}
 
-\subsection{Deliverables}
-\subsubsection{Analytical Work}
-\subsubsection{Software and Code}
+\section{Deliverables}
+\subsection{Analytical Work}
+\subsection{Software and Code}
 
 
 
-\section{Background}
+\chapter{Background}
 
-\subsection{Background Theory}
+\section{Background Theory}
 \input{backgroundTheory}
 
-\subsection{Analysis of Relevant Literature}
+\section{Analysis of Relevant Literature}
 \input{simulatorResearch}
 
-\subsection{Analysis of Competing Products}
+\section{Analysis of Competing Products}
 
-\subsection{Technical Specification}
+\section{Technical Specification}
 
 
 
-\section{Implementation}
-\subsection{Current Work}
-\subsubsection{AirSim}
-\subsubsection{StreetMap}
-\subsection{Future Milestones}
-\subsection{Future Timeline}
+\chapter{Implementation}
+\section{Current Work}
+\subsection{AirSim}
+\subsection{StreetMap}
+\section{Future Milestones}
+\section{Future Timeline}
 
-\section{Evaluation Plan}
-\subsection{...}
+\chapter{Evaluation Plan}
+\section{...}
 
-\section{Ethical, Legal and Safety Plan}
+\chapter{Ethical, Legal and Safety Considerations}
 \input{ELS_Plan}
 
 
 \newpage
-\bibliographystyle{agsm}
+\bibliographystyle{IEEEtran} %agsm
 \nocite{*}
 \bibliography{references}
 

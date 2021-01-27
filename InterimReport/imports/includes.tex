@@ -48,8 +48,7 @@
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{dsfont}
 \usepackage{epstopdf} % automatically replace .eps with .pdf in graphics
-\usepackage{natbib}
-\usepackage{backref}
+%\usepackage{backref}
 \usepackage{array}
 \usepackage{latexsym}
 \usepackage{etoolbox}
@@ -74,7 +73,7 @@
 \usepackage{fontspec}
 \setmainfont[Scale=.8]{OpenDyslexic-Regular}
 \else
-\usepackage[pdftex,pagebackref,hypertexnames=false,colorlinks]{hyperref} % provide links in pdf
+\usepackage[pdftex,hypertexnames=false,colorlinks]{hyperref} % provide links in pdf
 \hypersetup{pdftitle={},
   pdfsubject={}, 
   pdfauthor={\reportauthor},
@@ -128,6 +127,9 @@
 
 %\setlength{\headheight}{14.5pt}
 \pagestyle{fancy}
+%\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\arabic{section}.\ #1}}
+
 %\fancyfoot[ER,OL]{\thepage}%Page no. in the left on
                                 %odd pages and on right on even pages
 %\fancyfoot[OC,EC]{\sffamily }
