@@ -4,7 +4,7 @@ The purpose of this was to get a good understanding of the different simulators 
 
 %%%%%%%% 4DV-Sim %%%%%%%%%%
 \subsection{4DV-Sim}
-\textbf{Description:} 4DV-Sim\footnote{Website: https://www.4d-virtualiz.com/en/automotive-simulator/} is a simulator that is designed to emulate the hardware and sensors in autonomous systems. This is a professional product and has a variety of use cases from simulating farming to military.
+\textbf{Description:} 4DV-Sim\footnote{Website: \url{https://www.4d-virtualiz.com/en/automotive-simulator}} is a simulator that is designed to emulate the hardware and sensors in autonomous systems. This is a professional product and has a variety of use cases from simulating farming to military.
 
 \textbf{Open Source:} No
 
@@ -22,12 +22,12 @@ The purpose of this was to get a good understanding of the different simulators 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{Simulators/4DV-Sim.jpg}
-    \caption{Source: https://www.4d-virtualiz.com/en/automotive-simulator}
+    \caption{Source: \url{https://www.4d-virtualiz.com/en/automotive-simulator}}
 \end{figure}
 
 %%%%%%%% AirSIM %%%%%%%%%%
 \subsection{AirSim}
-\textbf{Description:} AirSim\footnote{Website: https://microsoft.github.io/AirSim/} is a simulator for cars and drones. It is open source and works as a plugin for unreal engine, which means the simulator can be used with any environment which has been modeled inside the game engine. According to their website \cite{AirSim_Website}, the goal of the simulator is to create a platform for AI research to experiment with deep learning, computer vision and reinforcement learning algorithms for autonomous systems. 
+\textbf{Description:} AirSim\footnote{Website: \url{https://microsoft.github.io/AirSim}} is a simulator for cars and drones. It is open source and works as a plugin for unreal engine, which means the simulator can be used with any environment which has been modeled inside the game engine. According to their website \cite{AirSim_Website}, the goal of the simulator is to create a platform for AI research to experiment with deep learning, computer vision and reinforcement learning algorithms for autonomous systems. 
 
 \textbf{Open Source:} Yes
 
@@ -44,7 +44,7 @@ The purpose of this was to get a good understanding of the different simulators 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{Simulators/AirSim.JPG}
-    \caption{Source: https://microsoft.github.io/AirSim/}
+    \caption{Source: \url{https://microsoft.github.io/AirSim}}
 \end{figure}
 
 %%%%%%%% Apollo %%%%%%%%%%
@@ -66,7 +66,7 @@ The purpose of this was to get a good understanding of the different simulators 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{Simulators/Apollo.JPG}
-    \caption{Source: Slide deck from Apollo Game Engine Based Simulation Talk at GDC 2019 - https://bit.ly/2VSzwlF}
+    \caption{Source: Slide deck from Apollo Game Engine Based Simulation Talk at GDC 2019 - \url{https://bit.ly/2VSzwlF}}
 \end{figure}
 
 %%%%%%%% Autoware %%%%%%%%%%
@@ -106,7 +106,7 @@ The purpose of this was to get a good understanding of the different simulators 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{Simulators/Carla.JPG}
-    \caption{Source: https://www.unrealengine.com/en-US/spotlights/carla-democratizes-autonomous-vehicle-r-d-with-free-open-source-simulator}
+    \caption{Source: \url{https://www.unrealengine.com/en-US/spotlights/carla-democratizes-autonomous-vehicle-r-d-with-free-open-source-simulator}}
 \end{figure}
 
 
@@ -120,7 +120,7 @@ The purpose of this was to get a good understanding of the different simulators 
 
 \textbf{Game Engine:} Not specified
 
-\textbf{Pros:} Has the ability to control several pedestrians and veichles in a shared space.
+\textbf{Pros:} Has the ability to control several pedestrians and vehichles in a shared space.
 
 \textbf{Cons:} Does not look to be design for machine learning algorithms. Difficult to add new models. Also, as it is not open source it will not be possible to customise the product. 
 
@@ -129,75 +129,100 @@ The purpose of this was to get a good understanding of the different simulators 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{Simulators/CrowdSim.JPG}
-    \caption{Source: https://crowdsim3d.com}
+    \caption{Source: \url{https://crowdsim3d.com}}
 \end{figure}
 
 
 %%%%%%%% Deep Drive %%%%%%%%%%
 \subsection{Deep Drive}
-\textbf{Description:} test
+\textbf{Description:} Deep Drive \cite{DeepDrive_Website} is an open-source simulator aimed to train neural networks for self driving cars. They also provide you with a large data set to train your autonomous vehicle on. 
 
-\textbf{Open Source:}
+\textbf{Open Source:} yes
 
-\textbf{Operating System:}
+\textbf{Operating System:} Any operating system
 
-\textbf{Game Engine:}
+\textbf{Game Engine:} Unreal Engine
 
-\textbf{Pros:} Is able to handle a variety of different sensors and vehicle setups. 
+\textbf{Pros:} Is able to handle a variety of different sensors and vehicle setups. It also has an active community and a leader board where you can compare your trained neural network against other developers. 
 
-\textbf{Cons:} Currently there are three maps available, but it is not easy to add your own maps. 
+\textbf{Cons:} Currently there are three maps available, but it is not easy to add your own maps. Also, it is not designed to be customised. Currently there are no pedestrians and no APIs.
 
-\textbf{Conclusion:} 
+\textbf{Conclusion:} Deep Drive is not a simulator which is worth looking at as it is not designed to be customised. It also lacks most of the features we are looking for. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{Simulators/DeepDrive.JPG}
-    \caption{Source: https://deepdrive.voyage.auto}
+    \caption{Source: \url{https://deepdrive.voyage.auto}}
 \end{figure}
 
 %%%%%%%% Donkey Car Simulator %%%%%%%%%%
 \subsection{Donkey Car Simulator}
-\textbf{Description:} test
+\textbf{Description:} Donkey Car Simulator is a simulator for the Donkey Car. The car itself costs roughly £200 and can be ordered online, or you can download the schematics for free. The simulator can be used to train a neural network in Python which can then run on your car. 
 
-\textbf{Open Source:}
+\textbf{Open Source:} Yes
 
-\textbf{Operating System:}
+\textbf{Operating System:} Any operating system
 
-\textbf{Game Engine:}
+\textbf{Game Engine:} Unity
 
-\textbf{Pros:}
+\textbf{Pros:} Easy to use
 
-\textbf{Cons:}
+\textbf{Cons:} Not what we are looking for as it is only used to train a real toy car.
 
+\textbf{Conclusion:} Donkey Car is an interesting project to read about as it is fun kit that introduces people to autonomous cars. However, it is not what we are looking for for this project as the simulator is not customisable and there is only one vehicle. 
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Simulators/DonkeySim.jpg}
+    \caption{Source: \url{https://docs.donkeycar.com}}
+\end{figure}
 
 %%%%%%%% Gazebo %%%%%%%%%%
 \subsection{Gazebo}
-\textbf{Description:} test
+\textbf{Description:}
 
-\textbf{Open Source:}
+\textbf{Open Source:} Yes
 
-\textbf{Operating System:}
+\textbf{Operating System:} Any operating system
 
-\textbf{Game Engine:}
+\textbf{Game Engine:} ODE, Bullet, Simbody, DART
 
 \textbf{Pros:}
 
 \textbf{Cons:}
+
+\textbf{Conclusion:} 
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Simulators/gazebo.png}
+    \caption{Source: \url{http://gazebosim.org/blog/vehicle\%20simulation}}
+\end{figure}
 
 
 %%%%%%%% LPZRobots %%%%%%%%%%
 \subsection{LPZRobots}
-\textbf{Description:} test
+\textbf{Description:} LPZRobots is a robotics simulator created by the Robotics Group for Self-Organisation of Control at the University of Leipzig in Germany \cite{LPZRobots_Website, LPZRobots_book}. The aim of the simulator is to have an open environment to simulate the robot's physics. 
 
-\textbf{Open Source:}
+\textbf{Open Source:} Yes
 
-\textbf{Operating System:}
+\textbf{Operating System:} Primarily Ubuntu, but now also supports Linux
 
-\textbf{Game Engine:}
+\textbf{Game Engine:} ODE
 
-\textbf{Pros:}
+\textbf{Pros:} Free to add any kind of robot.
 
-\textbf{Cons:}
+\textbf{Cons:} The code has not been updated since 2018 and last release was in 2016. Unlike other simulators, this one does not seem to have an active community. 
+
+\textbf{Conclusion:} As the development of the LPZRobots simulator has been inactive for several years, makes it not worth considering. The simulator also lacks most of the features we are looking for. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Simulators/LPZRobots.png}
+    \caption{Source: \url{https://itp.uni-frankfurt.de/~gros/StudentProjects/Robots\_2016\_ObstacleAvoidance}}
+\end{figure}
 
 
 %%%%%%%% LGSVL Simulator %%%%%%%%%%
@@ -282,7 +307,7 @@ The purpose of this was to get a good understanding of the different simulators 
 
 \textbf{Operating System:}
 
-\textbf{Game Engine:}
+\textbf{Game Engine:} 
 
 \textbf{Pros:}
 

@@ -1,0 +1,71 @@
+\newganttlinktype{rdldr*}{%
+  \draw [/pgfgantt/link]
+    (\xLeft, \yUpper) --
+    (\xLeft + \ganttvalueof{link bulge 1} * \ganttvalueof{x unit},
+      \yUpper) --
+    ($(\xLeft + \ganttvalueof{link bulge 1} * \ganttvalueof{x unit},
+      \yUpper)!%
+      \ganttvalueof{link mid}!%
+      (\xLeft + \ganttvalueof{link bulge 1} * \ganttvalueof{x unit},
+      \yLower)$) --
+    ($(\xRight - \ganttvalueof{link bulge 2} * \ganttvalueof{x unit},
+      \yUpper)!%
+      \ganttvalueof{link mid}!%
+      (\xRight - \ganttvalueof{link bulge 2} * \ganttvalueof{x unit},
+      \yLower)$) --
+    (\xRight - \ganttvalueof{link bulge 2} * \ganttvalueof{x unit},
+      \yLower) --
+    (\xRight, \yLower);%
+}
+\ganttset{
+  link bulge 1/.link=/pgfgantt/link bulge,
+  link bulge 2/.link=/pgfgantt/link bulge}
+%------------------------------------------------------------
+
+\ganttset{%
+calendar week text={%
+\currentweek%
+}%
+}
+
+\begin{ganttchart}[
+hgrid,
+vgrid={*{2}{draw=none},dotted,*{4}{draw=none}},
+x unit=0.8mm,
+time slot format=isodate,
+link/.append style={thick},
+]{2021-01-01}{2021-06-25}
+\gantttitlecalendar{month=shortname, week} \\
+% Deliverables
+\ganttbar{Interim Report}{2021-01-01}{2021-02-01}
+\ganttmilestone{}{2021-02-01}\\
+\ganttbar{Final Report}{2021-03-01}{2021-06-09} 
+\ganttmilestone{}{2021-06-16}\\
+\ganttlink{elem1}{elem2}
+\ganttbar{Presentation}{2021-06-07}{2021-06-18}
+\ganttmilestone{}{2021-06-21}\\
+% AirSim
+\ganttgroup{AirSim Development}{2021-01-01}{2021-03-28} \\
+\ganttbar{Add Pedestrians}{2021-02-01}{2021-02-14}
+\ganttmilestone{}{2021-02-14}\\
+\ganttbar{Add APIs to pedestrians}{2021-02-14}{2021-03-17} 
+\ganttmilestone{}{2021-03-17}\\
+\ganttbar{Evaluation}{2021-03-17}{2021-03-28} 
+\ganttmilestone{}{2021-03-28}\\
+\ganttlink[link type=rdldr*, link bulge 2=2.5, link mid=.25]{elem8}{elem9}
+\ganttlink[link type=rdldr*, link bulge 2=2.5, link mid=.25]{elem10}{elem11}
+
+% Other commitments
+\ganttgroup{Other Commtimens}{2021-01-01}{2021-03-28} \\
+
+
+
+% Web-App
+%\ganttgroup{Web-App}{2021-03-29}{2021-05-30} \\
+%\ganttbar{Django Back-end}{2021-03-29}{2021-04-18} \\
+%\ganttbar{UI / UX}{2021-04-19}{2021-05-16} \\
+%\ganttlink[link bulge=4, link mid=0.5]{elem10}{elem11}
+%\ganttbar{REST API}{2021-04-26}{2021-05-16} \\
+%\ganttlink[link type=rdldr*, link bulge 1 = 4, link bulge 2=11, link mid=.25]{elem10}{elem12}
+%\ganttbar{Deploy App}{2021-05-17}{2021-05-30} 
+\end{ganttchart}
