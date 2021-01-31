@@ -48,7 +48,7 @@ The purpose of this was to get a good understanding of the different simulators 
 \end{figure}
 
 %%%%%%%% Apollo %%%%%%%%%%
-\subsection{Apollo}
+\subsection{Apollo} \label{Apollo}
 \textbf{Description:} Apollo is a simulator which is designed emulate the hardware in autonomous vehicles so that it can be trained for machine learning algorithms. According to their website \cite{Apollo_Website}, Apollo is a flexible architecture which accelerates the development and testing of autonomous vehicles.
 
 \textbf{Open Source:} Yes
@@ -70,7 +70,7 @@ The purpose of this was to get a good understanding of the different simulators 
 \end{figure}
 
 %%%%%%%% Autoware %%%%%%%%%%
-\subsection{Autoware}
+\subsection{Autoware} \label{Autoware}
 \textbf{Description:} Autoware is an open-source software for autonomous vehicles. It comes with a large variety of APIs  \cite{Autoware_doc_Website}. Autoware is however not a simulator, but can be used on a simulated vehicle to make it autonomous.
 
 \textbf{Open Source:} Yes
@@ -227,28 +227,35 @@ The purpose of this was to get a good understanding of the different simulators 
 
 %%%%%%%% LGSVL Simulator %%%%%%%%%%
 \subsection{LGSVL Simulator} \label{LGSVL_Simulator}
-\textbf{Description:} test
+\textbf{Description:} LGSVL is a simulator created by the Advanced Platform Lab at the LG Electronics America R\&D Center \cite{LGSVL_Web}. The simulatorh combines the vehicle from Autoware (Section~\ref{Autoware}) with Apollo (Section~\ref{Apollo}) which emulates the hardware. The LGSVL has lots of available APIs such as cameras, LiDAR, RADAR and GPS. Some environmental parameters can also be changed such as the map, weather and pedestrians.
 % Uses Apollo and Autoware
 
-\textbf{Open Source:}
+\textbf{Open Source:} Yes
 
-\textbf{Operating System:}
+\textbf{Operating System:} Windows 10
 
-\textbf{Game Engine:}
+\textbf{Game Engine:} A variety due to its complexness, but both Unreal Engine and Unity.
 
-\textbf{Pros:}
+\textbf{Pros:} Has most of the features we are looking for.
 
-\textbf{Cons:}
+\textbf{Cons:} Relies on a lot of different components. The code base is therefore large and complex and it looks difficult to add our own features such as our own entity.
 
+\textbf{Conclusion:} The LGSVL Simulator would probably not work for us as it seems too complex.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Simulators/LGSVL.jpg}
+    \caption{Source: \url{https://www.lgsvlsimulator.com/about}}
+\end{figure}
 %https://github.com/lgsvl/simulator
 
 %%%%%%%% Marliou %%%%%%%%%%
 \subsection{Marliou}
-\textbf{Description:} test
+\textbf{Description:} 
 
-\textbf{Open Source:}
+\textbf{Open Source:} No (£350)
 
-\textbf{Operating System:}
+\textbf{Operating System:} Windows and Ubuntu
 
 \textbf{Game Engine:}
 

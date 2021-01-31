@@ -24,7 +24,7 @@
 
 \ganttset{%
 calendar week text={%
-\currentweek%
+\footnotesize\currentweek%
 }%
 }
 
@@ -38,6 +38,8 @@ calendar week text={%
     group peaks height=.2,
     group peaks tip position=0,
     group peaks width=2,
+    bar label font = \small,%\footnotesize,
+    group label font = \bf\small %\footnotesize,
 ]{2021-01-01}{2021-06-25}
 \gantttitlecalendar{month=shortname, week} \\
 % Deliverables
@@ -102,3 +104,4 @@ calendar week text={%
 %\ganttlink[link type=rdldr*, link bulge 1 = 4, link bulge 2=11, link mid=.25]{elem10}{elem12}
 %\ganttbar{Deploy App}{2021-05-17}{2021-05-30} 
 \end{ganttchart}
+
