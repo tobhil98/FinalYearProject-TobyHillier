@@ -1,28 +1,37 @@
 \subsection{Physics Engines}
+The purpose of a physics engine is to allow programs to easily implement physics, without the creators having to implement their own from scratch every time. An example could be, if a program needed to calculate a trajectory, this formula could be implemented directly inside the physics engine \cite{millington2007game}. This is quite a simple example, but simulating basic particle distribution or fluid dynamics would be much more complex. 
+\\~\\
+There are a large variety of different game engines, but the ones that are most commonly used in the simulators listed below are PhysX and ODE.
 
 \subsubsection{Open Dynamics Engine (ODE)}
+Open Dynamics Engine is a free physics engine most commonly used in simulation projects \cite{ODEPaper}. ODE is written in C++ and is a popular choice for simulating robotics. 
+
 \subsubsection{PhysX}
+PhysX is an open source-physics engine developed by Nvidia. This physics engine is commonly used in a lot of computer games. Both Unity and Unreal Engine use PhysX (Section~\ref{GameEngines}). PhysX is quite unique among other physics engines. This is because most scientific-targeted simulation software would be more accurate. This physics engine however truncates the calculations leading to be a more efficient but less accurate \cite{Martinez-FrancoJuanC2018PAAM}. The physics engine is also non-deterministic, meaning there will be some variation between runs. 
 
 
-\subsection{Rendering Engines}  % Maybe not needed
-\subsubsection{Open Graphics Rendering Engine (OGRE)}
 
-\subsection{Game Engines}
-The purpose of a game engine is to work as a fundamental back-end for most video games and simulators. A game engine is a software tool which allows interactive digital content to be made using a framework which easily allows the user to run it on different platforms such as computers, smartphones and consoles \cite{GameEngine_UnityGame_book}. Game engines are complex and consists of many components such as a physics engine, a rendering engine and other interactive tools to help the creator. They give the creator the freedom to control everything from lighting and audio to animation and character behavior in their game.
+%\subsection{Rendering Engines}  % Maybe not needed
+%\subsubsection{Open Graphics Rendering Engine (OGRE)}
+%\subsubsection{OpenGL}
+
+
+\subsection{Game Engines} \label{GameEngines}
+The purpose of a game engine is to work as a fundamental back-end for most video games and simulators. A game engine is a software tool that allows interactive digital content to be made using a framework that easily allows the user to run it on different platforms such as computers, smartphones and consoles \cite{GameEngine_UnityGame_book}. Game engines are complex and consist of many components such as a physics engine, a rendering engine, and other interactive tools to help the creator. They give the creator the freedom to control everything from lighting and audio to animation and character behavior in their game.
 \\~\\
-There exists many different game engines, but the two main ones that are currently in existence is Unity and Unreal Engine. These allow beginners to easily create their first games, as well as professional companies creating their games for millions of users \cite{GamesMadeInUnity, GamesMadeInUnrealEngine}.
+There exists many different game engines, but the two main ones that are currently in existence are Unity and Unreal Engine. These allow beginners to easily create their first games, as well as professional companies creating their games for millions of users \cite{GamesMadeInUnity, GamesMadeInUnrealEngine}.
 
 \subsubsection{Unity}
-Unity is currently the most commonly used game engine and over 2.5 million registered developers \cite{Unity_arnia_software}. Unity is developed by Unity Technologies and was first released June 2005.  Originally Unity was Over 60\% of augmented- and virtual reality games are created using Unity  \cite{GameEngine_UnityGame_book}. 
+Unity is currently the most commonly used game engine and over 2.5 million registered developers \cite{Unity_arnia_software}. Unity is developed by Unity Technologies and was first released in June 2005.  Originally Unity was Over 60\% of augmented- and virtual reality games are created using Unity  \cite{GameEngine_UnityGame_book}. 
 \\~\\
-Unity is free for personal and educational projects. To create the game, Unity allows a lot of features using the GUI, but for full freedom the creator would need to program in C\#. Unity however provide lots of resources to learn C\#. Unity also combines with Visual Studio where the intellisense can help with recommending functions to use as well as spot errors\footnote{\url{https://docs.microsoft.com/en-us/visualstudio/gamedev/unity/get-started/getting-started-with-visual-studio-tools-for-unity}}.
+Unity is free for personal and educational projects. To create the game, Unity allows a lot of features using the GUI, but for full freedom, the creator would need to program in C\#. Unity however provides lots of resources to learn C\#. Unity also combines with Visual Studio where the IntelliSense can help with recommending functions to use as well as spot errors\footnote{\url{https://docs.microsoft.com/en-us/visualstudio/gamedev/unity/get-started/getting-started-with-visual-studio-tools-for-unity}}.
 
 \subsubsection{Unreal Engine}
-Unreal Engine is a fast growing game engine and is created by Epic Games \cite{UnrealEngine_Book}. The first version of Unreal Engine was released in 1998, but Unreal Engine 4 (UE4), which was released September 2014, is their latest game engine. They have however announced that they will release Unreal Engine 5 (UE5) at the end of 2021 \cite{UE5}. 
+Unreal Engine is a fast-growing game engine and is created by Epic Games \cite{UnrealEngine_Book}. The first version of Unreal Engine was released in 1998, but Unreal Engine 4 (UE4), which was released in September 2014, is their latest game engine. They have however announced that they will release Unreal Engine 5 (UE5) at the end of 2021 \cite{UE5}. 
 \\~\\
-UE4 has a variety of different use cases as well as games. TV broadcastes such as Sky Sports and BBC are using Unreal Engine for their graphical match analysis \cite{UnrealEngine_LiveBroadcast}. Professional architects are also using the product to illustrate their creations \cite{UnrealEngine_Automative}.   
+UE4 has a variety of different use cases as well as games. TV broadcasters such as Sky Sports and BBC are using Unreal Engine for their graphical match analysis \cite{UnrealEngine_LiveBroadcast}. Professional architects are also using the product to illustrate their creations \cite{UnrealEngine_Automative}.   
 \\~\\
-Unreal Engine 4 is free for personal use and business making less than \$1 million in gross revenue \cite{UE5}. The code for UE4 is available on GitHub\footnote{\url{https://github.com/EpicGames/UnrealEngine}} (For access to the repository you would need to sign up for an Epic Games account\footnote{\url{https://www.unrealengine.com/en-US/ue4-on-github}}). UE4 allows two different ways for users to program their games. Either by using C++, which links with Visual Studio\footnote{\url{https://docs.unrealengine.com/en-US/ProductionPipelines/DevelopmentSetup/VisualStudioSetup/index.html}}, or by using blueprints as illustrated in Figure~\ref{UnrealEngineBlueprint}. Blueprints allows the creator for most of the freedom code gives them, but in an easier drag and drop layout.
+Unreal Engine 4 is free for personal use and business making less than \$1 million in gross revenue \cite{UE5}. The code for UE4 is available on GitHub\footnote{\url{https://github.com/EpicGames/UnrealEngine}} (For access to the repository you would need to sign up for an Epic Games account\footnote{\url{https://www.unrealengine.com/en-US/ue4-on-github}}). UE4 allows two different ways for users to program their games. Either by using C++, which links with Visual Studio\footnote{\url{https://docs.unrealengine.com/en-US/ProductionPipelines/DevelopmentSetup/VisualStudioSetup/index.html}}, or by using blueprints as illustrated in Figure~\ref{UnrealEngineBlueprint}. Blueprints allow the creator for most of the freedom code gives them, but in an easier drag and drop layout.
 \\~\\
 The majority of the simulators that will be looked at later use Unreal Engine as their game engine. 
 
