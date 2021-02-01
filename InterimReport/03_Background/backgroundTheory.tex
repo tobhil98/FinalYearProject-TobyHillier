@@ -42,11 +42,33 @@ The majority of the simulators that will be looked at later use Unreal Engine as
 
 \end{figure}
 
-\subsection{Vehicle Autonomy}
-% 5 Levels
-\subsection{Traffic Simulators}
+\subsection{Levels of Automation}
+When talking about autonomous systems, it is important to know the different levels of autonomy. The modern day Tesla cars are level 3, which means they can be driven autonomously for the majority of the time, but do need a human driver as a fallback system \cite{teslaSelf, Bagloee2016}.
+\begin{table}[H]
+\begin{tabular}{lll}
+\textbf{Level} & \textbf{Name}                   & \textbf{Description} \\
+0     & No Automation          & The driver is solely controlling the vehicle\\
+1     & Driver Assistance      & Cruise control is an example of this             \\
+2     & Partial Automation     & Automatic parking            \\
+3     & Conditional Automation & Modern day Tesla cars            \\
+4     & High Automation        & Vehicle almost fully automated           \\
+5     & Full Automation        & Vehicle never needs human input
+\end{tabular}
+\caption{Source: \url{https://link.springer.com/article/10.1007/s40534-016-0117-3\#Sec3}}
+\end{table}
 
-\subsection{API?}
+For this project all our simulations will be level 5. 
 
-\subsection{Machine Learning}
-Training machine learning models will be mentioned a few times when looking at the simulators.
+\subsection{Mixed Traffic Simulation}
+The purpose of a mixed traffic simulation is to model the interaction between different types of agents, for example the the interaction between pedestrians, autonomous robots and vehicles. This is important because having a fully automated agent has to interact with a lot more than only other fully automated agents \cite{KernerBorisS2021Eoad}. 
+\\~\\
+A mixed traffic simulator can be used to simulate different situations where an autonomous system has to react to other agents behavior. This will mean the implemented algorithm will have the opportunity to try out a lot more complex scenarios a lot faster than in real life. This will help speed up development time. 
+
+
+\subsection{API}
+API stands for Application Programming Interface. This will allow a program to communicate with one-another. The API will define what kind of requests another program can make, how to make them, and the what the format should be. APIs also need to be documented so that other developers know how they work \cite{WulfJochen2020FVCw}.
+\\~\\
+In the case of our simulators APIs will be used to communicate between an external program and the simulator itself. These communications could contain information for how to control the agent, or it could contain information from what the agent observes. 
+
+%\subsection{Machine Learning}
+%Training machine learning models will be mentioned a few times when looking at the simulators.
