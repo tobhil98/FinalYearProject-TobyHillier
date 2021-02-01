@@ -4,13 +4,13 @@
 
 
 \newcommand{\reporttitle}{Mixed Traffic Simulation for Autonomous Systems in Shared Spaces}
-\newcommand{\reportauthor}{Toby Hillier}
+\newcommand{\reportauthor}{Frederik Tobias Hillier}
 \newcommand{\reporttype}{Interim Report}
 \newcommand{\cid}{01412520}
 
 \newcommand{\supervisor}{Prof Y.K. Demiris}
 \newcommand{\supervisorassistant}{Dr X. Zhang}
-\newcommand{\secondmarker}{Dr D. Gunduz}
+\newcommand{\secondmarker}{Prof D. Gunduz}
 
 
 % include files that load packages and define macros
@@ -40,22 +40,32 @@
 \section{Analysis of Relevant Literature} \label{BackgroundLit}
 \input{03_Background/simulatorResearch}
 
-\section{Analysis of Competing Products}
-
-\section{Technical Specification}
+\section{Analysis of Competing Products} \label{AoCP}
+\input{03_Background/AnalysisOfCompetingProducts}
 
 
 
 \chapter{Implementation}
 \input{04_Implementation/implementation}
 \section{Future Work} \label{FuturePlanning}
+\subsection{Development}
+After pedestrians have been added we will need to look at implementing APIs to control them. This should try to follow a similar style to the APIs currently available to control the vehicle. Thereafter we could make minor modifications to the pedestrians so that other mobile robots could be controlled as well. 
+\\~\\
+The next step would then be to implement the sensing APIs for our new entities. First and foremost, a camera illustrating the pedestrians' point of view would be the most important one,. And once this is done extending it so that it would work for mobile robots as well. 
+Following that, we would like to have other kinds of sensors for the mobile robots working. These could for example be ultrasonic and LiDAR. 
+\\~\\
+When this is done, we will have most of the features we are looking for in the simulator. This will hopefully be done sometime in the middle of March.
+
+\subsection{Evaluation Plan}
+\input{05_Evaluation/evaluation}
 \pagebreak
 \section{Future Timeline} \label{timeline}
 \input{04_Implementation/timeline}
+\\~\\
+When looking at the timeline, it is worth noting that future work might be pushed back if the AirSim development takes longer than anticipated. 
 \pagebreak
-
-\chapter{Evaluation Plan}
-\section{...}
+\section{Extensions}\label{Extensions}
+\input{04_Implementation/extensions}
 
 \chapter{Ethical, Legal and Safety Considerations}
 \input{06_Considerations/ELS_Plan}

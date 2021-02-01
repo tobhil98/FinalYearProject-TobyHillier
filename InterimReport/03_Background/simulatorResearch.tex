@@ -1,6 +1,6 @@
 In this section we will look at a large variety of different simulators, to determine which one best suits our purpose. We will be looking at which operating system and game engine the simulator uses, whether or not it is open source, and the pros and cons of each simulator. We will be particularly looking at the simulators sensing abilities, ability to add additional entities, map customisability, available APIs, and how user-friendly the simulator is. Aspects of the simulator which is not as important as how realistic the simulator physics is, and how visually good looking it is. These are criteria formed by the project specification (Section~\ref{ProjectSpec})
 \\~\\
-The purpose of this was to get a good understanding of the different simulators currently in existence. The aim was to find 3-4 simulators that would be worth looking closer at.
+The purpose of this section is to get a good understanding of the different simulators currently in existence. The aim is to find 3-4 simulators that would be worth looking closer at.
 
 %%%%%%%% 4DV-Sim %%%%%%%%%%
 \subsection{4DV-Sim}
@@ -26,8 +26,8 @@ The purpose of this was to get a good understanding of the different simulators 
 \end{figure}
 
 %%%%%%%% AirSIM %%%%%%%%%%
-\subsection{AirSim}
-\textbf{Description:} AirSim\footnote{Website: \url{https://microsoft.github.io/AirSim}} is a simulator for cars and drones. It is open-source and works as a plugin for unreal engine, which means the simulator can be used with any environment which has been modeled inside the game engine. According to their website \cite{AirSim_Website}, the goal of the simulator is to create a platform for AI research to experiment with deep learning, computer vision, and reinforcement learning algorithms for autonomous systems. 
+\subsection{AirSim} \label{AirSimDoc}
+\textbf{Description:} AirSim\footnote{Website: \url{https://microsoft.github.io/AirSim}} is a simulator for cars and drones. It is open-source and works as a plugin for Unreal Engine, which means the simulator can be used with any environment which has been modeled inside the game engine. According to their website \cite{AirSim_Website}, the goal of the simulator is to create a platform for AI research to experiment with deep learning, computer vision, and reinforcement learning algorithms for autonomous systems. 
 
 \textbf{Open Source:} Yes
 
@@ -35,11 +35,11 @@ The purpose of this was to get a good understanding of the different simulators 
 
 \textbf{Game Engine:} Primarily Unreal Engine, but it also offers a prototype version in Unity
 
-\textbf{Pros:} Offers a large range of existing APIs. The simulator also has an active community on both discord and Github. It also gives the option to add drones. It is also designed to train machine learning algorithms on it.
+\textbf{Pros:} Offers a large range of existing APIs. The simulator also has an active community on both discord and Github. It also gives the option to add drones. It is also designed to train machine learning models on it.
 
 \textbf{Cons:} The simulator is not as realistic as other simulators. The vehicle physics is not as good as some of the other simulators, for example the handling and collisions. Also, currently, there are no pedestrians in the game. 
 
-\textbf{Conclusion:} AirSim is worth looking closer into. As it is built using a game engine it should not be too hard to add the missing features, like for example adding and controlling pedestrians. Also, realistic vehicle physics was determined not to be an important factor for this project. 
+\textbf{Conclusion:} AirSim is worth looking closer into. As it is built using a game engine it should not be too hard to add the missing features, like for example adding and controlling pedestrians. In addition, as it is a plugin for Unreal Engine means that we can use other tools to import for example maps. Also, realistic vehicle physics was determined not to be an important factor for this project. 
 
 \begin{figure}[H]
     \centering
@@ -49,7 +49,7 @@ The purpose of this was to get a good understanding of the different simulators 
 
 %%%%%%%% Apollo %%%%%%%%%%
 \subsection{Apollo} \label{Apollo}
-\textbf{Description:} Apollo is a simulator that is designed to emulate the hardware in autonomous vehicles so that it can be trained for machine learning algorithms. According to their website \cite{Apollo_Website}, Apollo is a flexible architecture that accelerates the development and testing of autonomous vehicles.
+\textbf{Description:} Apollo is a simulator that is designed to emulate the hardware in autonomous vehicles so that it can be trained for machine learning models. According to their website \cite{Apollo_Website}, Apollo is a flexible architecture that accelerates the development and testing of autonomous vehicles.
 
 \textbf{Open Source:} Yes
 
@@ -57,7 +57,7 @@ The purpose of this was to get a good understanding of the different simulators 
 
 \textbf{Game Engine:} Unity
 
-\textbf{Pros:} Accurately models the vehicle physics to help improve the machine learning algorithms accuracy. The simulator is also actively being worked on by a large community.  
+\textbf{Pros:} Accurately models the vehicle physics to help improve the machine learning models accuracy. The simulator is also actively being worked on by a large community.  
 
 \textbf{Cons:} It looks like quite a complex simulator, and it does therefore not seem like it will be easy to modify. The product is really specific towards training autonomous vehicles. 
 
@@ -87,8 +87,8 @@ The purpose of this was to get a good understanding of the different simulators 
 
 
 %%%%%%%% Carla %%%%%%%%%%
-\subsection{Carla}
-\textbf{Description:} Carla is an open-source simulator for developing autonomous vehicles. It contains a variety of APIs and is actively being developed. Carla is also designed for training machine learning algorithms. 
+\subsection{Carla} \label{Carla}
+\textbf{Description:} Carla is an open-source simulator for developing autonomous vehicles. It contains a variety of APIs and is actively being developed. Carla is also designed for training machine learning models. 
 
 \textbf{Open Source:} Yes
 
@@ -122,7 +122,7 @@ The purpose of this was to get a good understanding of the different simulators 
 
 \textbf{Pros:} Has the ability to control several pedestrians and vehicles in a shared space.
 
-\textbf{Cons:} Does not look to be designed for machine learning algorithms. Difficult to add new models. Also, as it is not open source it will not be possible to customise the product. 
+\textbf{Cons:} Does not look to be designed for machine learning models. Difficult to add new models. Also, as it is not open source it will not be possible to customise the product. 
 
 \textbf{Conclusion:} CrowdSim3D is not worth considering as we cannot adapt the product as it is not open source. 
 
@@ -179,20 +179,20 @@ The purpose of this was to get a good understanding of the different simulators 
 \end{figure}
 
 %%%%%%%% Gazebo %%%%%%%%%%
-\subsection{Gazebo}
-\textbf{Description:}
+\subsection{Gazebo}\label{gazebo}
+\textbf{Description:} GazeboSim is a robotics simulator designed to design robots, test algorithms and train AI systems \cite{Gazebo_Website}. Gazebo offers the ability to simulate several robots at once in both indoor and outdoor environments.
 
 \textbf{Open Source:} Yes
 
 \textbf{Operating System:} Any operating system
 
-\textbf{Game Engine:} ODE, Bullet, Simbody, DART
+\textbf{Game Engine:} ODE, but also Bullet, Simbody and DART which are additional physics engines. 
 
-\textbf{Pros:}
+\textbf{Pros:} Very versatile, can be used for much more than traffic simulations. 
 
-\textbf{Cons:}
+\textbf{Cons:} Due to the large number of different physics engines it might complicated to fix something if a feature breaks. The documentations is not as clear as some other simulators. 
 
-\textbf{Conclusion:} 
+\textbf{Conclusion:} Gazebo is worth looking at as it is widely used for robotics simulations. All the sensing APIs are already implemented.
 
 
 \begin{figure}[H]
@@ -341,18 +341,26 @@ The purpose of this was to get a good understanding of the different simulators 
 
 %%%%%%%% Webots %%%%%%%%%%
 \subsection{Webots}
-\textbf{Description:} test
+\textbf{Description:} Webots is an open-source robotics simulator developed by Cyberbotics \cite{Webots_Github}. Webots provides a complete developing environment to model, program and simulate the robots \cite{Webots_home}. 
 
-\textbf{Open Source:}
+\textbf{Open Source:} Yes
 
-\textbf{Operating System:}
+\textbf{Operating System:} Any operating system
 
-\textbf{Game Engine:}
+\textbf{Game Engine:} ODE
 
-\textbf{Pros:}
+\textbf{Pros:} A lot of documentation on how to add new features. Seems to be able to generate new maps easily. Available chat page.
 
-\textbf{Cons:}
+\textbf{Cons:} There does not seem to be many APIs to control multiple entities. All the APIs are mainly used for sensing. 
 
+\textbf{Conclusion:} Webots has most of the features that we are looking for, however seems to lack the ability to easily control multiple entities at once. The simulator also seems less advanced than Gazebo (Section~\ref{gazebo}), so as an open area robotics simulator, we will rather look at that one first. We will therefore not be considering Webots.
 
-\subsection{Conclusion?}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Simulators/Webots.jpg}
+    \caption{Source: \url{https://www.cyberbotics.com/doc/automobile/city-night}}
+\end{figure}
+
+\subsection{Conclusion}
+After looking at the different simulators we decided to look further into AirSim (Section~\ref{AirSimDoc}), Carla (Section~\ref{Carla}) and Gazebo (Section~\ref{gazebo}). These are the simulator that will hopefully be the easiest to adapt and modify to suit our needs. In the next section, Analysis of Competing Product (Section~\ref{AoCP}) we will look at which of these three simulators to go for. 
 %https://www.hisour.com/robotics-simulator-42971/

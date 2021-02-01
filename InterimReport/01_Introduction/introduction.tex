@@ -4,12 +4,12 @@
 This is the interim report for my master's thesis titled "Mixed Traffic Simulation for Autonomous Systems in Shared Spaces". The report aims to present the initial background research and early implementation results \cite{studentGuideline}. The report will contain the following sections as suggested in the project guide:
 \\ \tab The \emph{Introduction} chapter will establish the project outline and the expected deliverables. The chapter will also describe the context of the underlying problem the project will try to resolve.
 \\ \tab The \emph{Background} chapter will first introduce the technical tools and theory which is needed to understand the project. This will include looking at what a game engine is, as well as briefly looking at the two major game engines used by most simulators. Thereafter comes an analysis of the simulators that have been studied which a conclusion for which simulator was chosen for this project. 
-\\ \tab The \emph{Implementation} chapter will describe what work has been done in regards to the chosen simulator. The chapter will also indicate the expected milestones and an estimated timeline for the future. 
-\\ \tab The \emph{Evaluation Plan} chapter will elaborate on how the project deliverables will be evaluated. This will include for example usability and effectiveness. 
-\\ \tab And finally the \emph{Ethical, Legal and Safety Considerations} chapter which will look if there are any ethical legal or safety concerns both in regards to the project as is, but also briefly with potential extensions. 
+\\ \tab The \emph{Implementation} chapter will describe what work has been done in regards to the chosen simulator. The chapter will also contain an evaluation plan for how the project deliverables will be evaluated. In addition, the chapter will also indicate the estimated timeline and possible extensions. 
+\\ \tab And finally the \emph{Ethical, Legal and Safety Considerations} chapter which will look if there are any ethical legal or safety concerns both in regards to the project as is, but also briefly with potential extensions.
 
+\pagebreak
 \section{Project Specification} \label{ProjectSpec}
-\subsection{Objectives}
+\subsection{Objectives} \label{Objectives}
 The objectives of the project are: 
 \begin{itemize}
     \item Survey the current state of the art in vehicle and mobile robot simulation and evaluate current simulators (e.g. CARLA, CrowdSim3D, Gazebo), list and understand the underlying simulation methodologies (e.g. types of physics engine), and understand and document their advantages and disadvantages, particularly in terms of their sensing and control abilities.
@@ -18,6 +18,20 @@ The objectives of the project are:
     \item Add sensors to the simulated agents (e.g. cameras, LIDARS) and a perception API, where simulation users can obtain sensing data from the simulator, for example what can the agents “see” in their environment.
 \end{itemize}
 (Source: Project Specification as written by Prof. Y. K. Demiris)
+\\~\\~\\
+Features that want to have in our simulator: 
+\begin{itemize}
+\item Place agents
+\item Control the agents' behavior
+\item Access to what the agent sees as well as body movement
+\item Looking to plot a path for pedestrians
+\item Able to drive off the road, e.g. on the pavement and interact with pedestrians
+\item Want to easily create custom maps which are not whole worlds
+\item Does not need to handle a large number of pedestrians and vehicles
+\item Not looking to be able to navigate indoors
+\item Animation and realistic car movement is not important
+\end{itemize}
+(Source: After discussion in the meetings with my supervisors, 22/10 and 10/11)
 \subsection{Deliverables}
 The main deliverable for this project will be:
 \begin{itemize}
@@ -26,7 +40,7 @@ The main deliverable for this project will be:
     \item A simulator with the incorporated sensing and controlling APIs.
     \item Documentation for how to use the two above points.
 \end{itemize}
-If time allows for it there is a possibility of extending the project, but that is still to be determined. 
+If time allows for it there could be a possibility of extending the project, but that is still to be determined (Section~\ref{Extensions}) 
 \section{Context}
 For the last decade there has been a lot of talk about self-driving cars and other autonomous systems \cite{markoff_2010}. Back in 2010 most autonomous systems were only driven on closed circuits, but today there are a variety of car manufacturers offering autopilot on their cars. In 2021 Tesla has announced that all new cars they produce will have the hardware needed for full self-driving in almost all circumstances \cite{teslaSelf}. 
 \\~\\ 
