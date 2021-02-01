@@ -1,11 +1,11 @@
 In this section, we will look at which of the three simulators to use from Section~\ref{BackgroundLit}.%, as well as 
 
 \subsection{AirSim vs Carla vs Gazebo}
-For this section, I started off building the different simulators from source. The aim was to build the simulators in Ubuntu, but due to my outdated graphics card, I was unable to build Unreal Engine.
+For this section, I started off building the different simulators from source. The aim was to build the simulators in Ubuntu, but due to my outdated graphics card, I was unable to build Unreal Engine. I was however able to run Unreal Engine on Windows by downloading the binary distribution. 
 \\~\\
 \textbf{AirSim:} The AirSim plugin built successfully on Windows\footnote{\url{https://microsoft.github.io/AirSim/build_windows}}, and I was able to use it in Unreal Engine. The only minor inconvenience was that the simulator has to be built using the Visual Studio 2019 development terminal. However, after installing Visual Studio 2017 which is used to build Carla, I was no longer able to build AirSim. 
 \\~\\
-As AirSim is built using a game engine which would hopefully mean it is an easier environment to set up missing features. AirSim is also designed to Simulate traffic, unlike Gazebo which is designed for a variety of simulations. 
+As AirSim is built using a game engine, it would hopefully mean it is an easier environment to set up missing features. AirSim is also designed to simulate traffic, unlike Gazebo which is designed for a variety of simulations. 
 \\~\\
 \textbf{Carla:} Carla built successfully on Ubuntu following this guide\footnote{\url{https://carla.readthedocs.io/en/latest/build_linux}} and after doing these alterations:
 \begin{itemize}
@@ -14,23 +14,23 @@ As AirSim is built using a game engine which would hopefully mean it is an easie
 \item Clang-Tools-8 was outdated so I installed Clang-Tools
 \item lld-8 was outdated so I installed lld
 \end{itemize}
-However, as Unreal Engine did not build on Ubuntu I was unable to proceed from here and instead tried on Windows. Carla claims to work on Windows, but I ran into a build error which I was unable to resolve. This seems to be a known issue as it is, as of the time of writing, still an unresolved issue on GitHub\footnote{\url{https://github.com/carla-simulator/carla/issues/3605}}. 
+However, as Unreal Engine did not build on Ubuntu I was unable to proceed from here and instead tried on Windows. Carla claims to work on Windows, but I ran into a build error which I was unable to resolve. This seems to be a known issue, and as of the time of writing, is still an unresolved issue on GitHub\footnote{\url{https://github.com/carla-simulator/carla/issues/3605}}. 
 \\~\\
-Another issue with Carla was the ability to import custom maps \cite{Carlamap}. Carla requires the map to consist of two layers. The first one being the map structure with buildings and roads, whilst the second one will consist of road rules, such as traffic lights, where the cars are allowed to drive, pedestrian crossings, and so on. Maps can be imported using RoadRunner\footnote{\url{https://uk.mathworks.com/products/roadrunner.html}}, but this is not an open-source product.
+Another issue with Carla was the ability to import custom maps \cite{Carlamap}. Carla requires the map to consist of two layers. The first one being the map structure with buildings and roads, whilst the second one will consist of road rules, such as traffic lights, where the cars are allowed to drive, pedestrian crossings, and so on. RoadRunner\footnote{\url{https://uk.mathworks.com/products/roadrunner.html}} can be used to import maps, but this is not a free product.
 \\~\\
 \textbf{Gazebo:} Gazebo built successfully on Ubuntu\footnote{\url{http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install}}.
 \\~\\
-Gazebo has all the sensing features we are looking for \cite{Rosique2019}, such as GPS, LiDAR, RADAR, and Ultrasonic. One main drawback with Gazebo is the existing lack of APIs to interact with multiple entities at once. Even though the Gazebo platform has a lot of features, it is not as rich as Unreal Engine \cite{EbeidEmad2018AsoO}. 
+Gazebo has all the sensing features we are looking for \cite{Rosique2019}, such as GPS, LiDAR, RADAR, and Ultrasonic. One main drawback with Gazebo is the lack of existing APIs to interact with multiple entities at once. Even though the Gazebo platform has a lot of features, it is not as rich as Unreal Engine \cite{EbeidEmad2018AsoO}. 
 \\~\\
 
 \textbf{Conclusion:} As we are not able to build Carla, as well as it being very difficult to change maps, we will discard that one and look at comparing AirSim and Gazebo. 
 \begin{itemize}
-    \item Unreal Engine is more feature-rich than Gazebo. Using Unreal Engine will also minimise chances of finding out something is not possible later on. 
-    \item Both have the ability to train machine learning models.
+    \item AirSim and Unreal Engine is more feature-rich than Gazebo. Using Unreal Engine will also minimise chances of finding out something is not possible later on.
     \item Both have the ability to import maps quite easily
+    \item Both have the ability to train machine learning models.
     \item AirSim has GPS and Lidar, but it is not clear if it has Ultrasonic or not. Gazebo has more sensing APIs in any case.
     \item Having multiple entities seems easier in AirSim than in Gazebo. 
     \item AirSim is designed for vehicles, whilst Gazebo is designed to be a more generic robotics platform. 
     \item Gazebo is more commonly used than AirSim. 
 \end{itemize}
-After looking at the information above we have chosen to go with AirSim for this project. This is because AirSim is a plugin for Unreal Engine and there gives us the option to extend the program to anything Unreal Engine allows us to do. 
+After looking at the information above we have chosen to go with AirSim for this project. This is because AirSim is a plugin for Unreal Engine and that gives us the option to extend the program to anything Unreal Engine allows us to do. 
