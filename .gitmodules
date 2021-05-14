@@ -1,3 +1,6 @@
 [submodule "InterimReport"]
 	path = InterimReport
 	url = https://git.overleaf.com/6005d0d79b522230fdc5defe
+[submodule "Dissertation"]
+	path = Dissertation
+	url = https://git.overleaf.com/6096a302d80f18ace4c4fdc0
