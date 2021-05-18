@@ -4,3 +4,7 @@
 [submodule "Dissertation"]
 	path = Dissertation
 	url = https://git.overleaf.com/6096a302d80f18ace4c4fdc0
+[submodule "Simulator"]
+	path = Simulator
+	url = https://github.com/tobhil98/MastersProject-AirSim.git
+	branch = Toby-FYP
