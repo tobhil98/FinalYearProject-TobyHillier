@@ -1,0 +1,123 @@
+\documentclass[11pt,a4paper,twoside,openright]{report}
+\usepackage[a4paper,hmargin=2.8cm,vmargin=2.0cm,includeheadfoot]{geometry}
+
+\usepackage[nottoc]{tocbibind}
+
+\usepackage[xindy={glsnumbers=false}, nonumberlist, nopostdot, nogroupskip]{glossaries}
+\usepackage{enumitem}
+\makeglossaries
+
+\newcommand{\reporttitle}{Mixed Traffic Simulation for Autonomous Systems in Shared Spaces}
+\newcommand{\reportauthor}{Frederik Tobias Hillier}
+\newcommand{\reporttype}{Final Year Project 2021}
+\newcommand{\cid}{01412520}
+
+\newcommand{\supervisor}{Prof Y.K. Demiris}
+\newcommand{\supervisorassistant}{Dr X. Zhang}
+\newcommand{\secondmarker}{Prof D. Gunduz}
+
+
+% include files that load packages and define macros
+\input{imports/includes} % various packages needed for maths etc.
+\input{imports/notation} % short-hand notation and macros
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+% front page
+\input{00_Preamble/Titlepage}
+\pagebreak
+\input{00_Preamble/Plagiarism}
+\pagebreak
+\input{00_Preamble/Abstract}
+\pagebreak
+\input{00_Preamble/Acknowledgements}
+
+
+
+\tableofcontents
+\input{00_Preamble/acronyms}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Main document
+\chapter{Introduction}
+\input{01_Introduction/introduction}
+
+
+%%%%%%%%%%%%%%%%% BACKGROUND
+\chapter{Background}
+
+\section{Purpose of a Mixed Traffic Simulator}
+\input{03_Background/Purpose}
+
+\section{Background Theory}
+\input{03_Background/BackgroundTheory}
+
+\section{Analysis of Existing Simulators}  % \label{BackgroundLit} \label{AoCP}
+\input{03_Background/SimulatorResearch}
+
+
+%%%%%%%%%%%%%%%%% Requirements Capture
+\chapter{Requirements Capture}
+\input{04_RequirementsCapture/Requirements}
+
+
+%%%%%%%%%%%%%%%%% Analysis and Design
+\chapter{Analysis and Design}
+\input{05_AnalysisAndDesign/AnalysisAndDesign}
+
+
+%%%%%%%%%%%%%%%%% Implementation
+\chapter{Implementation}
+\input{06_Implementation/Implementation}
+
+
+%%%%%%%%%%%%%%%%% Testing
+\chapter{Testing}
+%\input{07_Testing/}
+
+
+%%%%%%%%%%%%%%%%% Results
+\chapter{Results}
+\input{08_Results/Results}
+
+
+
+%%%%%%%%%%%%%%%%% Evaluation
+\chapter{Evaluation}
+%\input{09_Evaluation/}
+
+
+%%%%%%%%%%%%%%%%% Evaluation
+\chapter{Conclusions and Further Work}
+%\input{12_ConclusionsAndFutherWork/}
+
+
+%%%%%%%%%%%%%%%%% User Guide
+\chapter{User Guide}
+\input{13_UserGuide/UserGuide}
+
+
+\newpage
+\bibliographystyle{IEEEtran} %agsm
+%\nocite{*}
+\bibliography{
+    references,
+    06_Implementation/references
+}
+
+
+\appendix
+\chapter{Simulator Research}
+\input{03_Background/Appendix/AppendixSimulatorResearch}
+
+
+
+
+\end{document}
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

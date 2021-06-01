@@ -1,0 +1,87 @@
+In this section we will look at a large variety of different simulators, to determine which one best suits our purpose. We will be looking at which operating system and game engine the simulator uses, whether or not it is open source, and the pros and cons of each simulator. We will be particularly looking at the simulators sensing abilities, ability to add additional entities, map customisability, available APIs, and how user-friendly the simulator is. Aspects of the simulator which is not as important as how realistic the simulator physics is, and how visually good looking it is. These are criteria formed by the project specification (Section~\ref{ProjectSpec})
+\\~\\
+The purpose of this section is to get a good understanding of the different simulators currently in existence.
+
+\subsection{Overview}
+
+% \usepackage{tablefootnote}
+% \usepackage{array}
+% \usepackage{pdflscape}
+% \usepackage{longtable}
+
+
+% \usepackage{tablefootnote}
+% \usepackage{array}
+% \usepackage{pdflscape}
+% \usepackage{longtable}
+
+\begin{landscape}
+% \usepackage{tablefootnote}
+% \usepackage{array}
+% \usepackage{rotating}
+\begin{table}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lllllllllll}
+\textbf{Simulator~ ~ ~ ~ ~} & \textbf{\thead[l]{Open\\Source}} & \textbf{OS}\tablefootnote{"Any" means most commonly used Linux distributions, Windows and MAC} & \textbf{Game Engine} & \textbf{Development}\tablefootnote{"Actively Developed" means that there were several releases in the past year} & \textbf{Support} & \textbf{Pedestrians} & \textbf{Extensibility} & \textbf{\thead[l]{Multiple\\Agents}} & \textbf{Existing APIs} & \textbf{\thead[l]{Worth\\Considering}\tablefootnote{Reasoning for the decision can be found in the Appendix \ref{Appendix}}} \\
+4DV-Sim & No & Linux & \thead[l]{PhysX\\(Physics Engine)} & \thead[l]{Actively\\ Developed} & Company offers support & Yes & No & Yes & Yes & No \\
+AirSim & Yes & Any & \thead[l]{Primarily UE4,\\ but also Unity} & \thead[l]{Actively\\ Developed} & GitHub Issues & No & Yes & Yes\tablefootnote{Multiple agents is possible, but in a very limited number and has to be declared at the start.} & Yes & Yes \\
+Apollo & Yes & Docker & Unity & \thead[l]{Actively\\ Developed} & GitHub Issues & No & Difficult & No & No & No \\
+Autoware & Yes & ROS & N/A & \thead[l]{Actively\\ Developed} & GitLab Issues & No & Difficult & No & Limited\tablefootnote{\label{Footnote:03_Background:SimulatorResearchLimited}No sensing APIs} & No \\
+Carla & Yes & Linux\tablefootnote{Linux is the main platform and they are aiming to support Windows as well. Currently Carla does not work on Windows.} & UE4 & \thead[l]{Actively\\ Developed} & GitHub Issues & Yes & Yes & Yes & Yes & Yes \\
+CrowdSim3D & No & Any & N/A & Unknown & Company offers support & Yes & No & Yes & Yes & No \\
+Deep Drive & Yes & Any & UE4 & \thead[l]{Last Commit\\ June 2020} & GitHub Issues & No & Yes & Yes & No & No \\
+\thead[l]{Donkey Car\\ Simulator} & Yes & Any & Unity & \thead[l]{Actively\\ Developed} & GitHub Issues & No & Yes & No & Limited\footref{Footnote:03_Background:SimulatorResearchLimited} & No \\
+Gazebo & Yes & Any & \thead[l]{Several different \\ physics engines} & \thead[l]{Actively\\ Developed} & GitHub Issues & Yes & Yes & Yes & Yes & Yes \\
+LPZRobots & Yes & Linux & \thead[l]{ODE\\(Physics Engine)} & \thead[l]{Last Commit\\ November 2018} & Google Group\tablefootnote{https://groups.google.com/d/forum/lpzrobots} & Yes & Yes & Yes & No & No \\
+\thead[l]{LGSVL\\ Simulator} & Yes & Windows 10 & \thead[l]{Several, both \\ Unity and UE4} & \thead[l]{Actively\\ Developed} & GitHub Issues & Yes & Difficult & Yes & Yes & Yes \\
+Marilou & No & \thead[l]{Linux and,\\ Windows} & N/A & \thead[l]{Latest release\\ was 2018} & Non & Yes & No & Yes & No & No \\
+rFpro & No & Windows & ISIMotor & \thead[l]{Actively\\ Developed} & Company offers support & No & No & Yes & No & No \\
+Rig of Rods & Yes & \thead[l]{Linux and,\\ Windows} & \thead[l]{Creates its own \\ soft-body physics engine} & \thead[l]{Actively\\ Developed} & Forum\tablefootnote{https://forum.rigsofrods.org/} & No & Yes & Yes & No & No \\
+TORCS & Yes & \thead[l]{Linux and,\\ Windows} & \thead[l]{Non, implemented \\ from scratch} & \thead[l]{Latest release\\ was 2016} & Discussion page\tablefootnote{https://sourceforge.net/p/torcs/discussion/11281/} & No & Yes & Yes & No & No \\
+Webots & Yes & Any & \thead[l]{ODE\\(Physics Engine)} & \thead[l]{Actively\\ Developed} & GitHub Issues & Yes & Yes & Yes & Limited\tablefootnote{Only sensing APIs} & Yes
+\end{tabular}%
+}
+\caption{The table contains a brief overview over some of the simulators researched. \\ For more detailed information on the simulators see Appendix~\ref{}.}
+\end{table}
+\end{landscape}
+
+\subsection{Further Simulator Analysis}
+Compare the different simulators that were interesting from the previous table.
+
+\subsection{Conclusion}
+% In this section, we will look at which of the three simulators to use from Section~\ref{BackgroundLit}.%, as well as 
+
+% \subsection{AirSim vs Carla vs Gazebo}
+% For this section, I started off building the different simulators from source. The aim was to build the simulators in Ubuntu, but due to my outdated graphics card, I was unable to build Unreal Engine. I was however able to run Unreal Engine on Windows by downloading the binary distribution. 
+% \\~\\
+% \textbf{AirSim:} The AirSim plugin built successfully on Windows\footnote{\url{https://microsoft.github.io/AirSim/build_windows}}, and I was able to use it in Unreal Engine. The only minor inconvenience was that the simulator has to be built using the Visual Studio 2019 development terminal. However, after installing Visual Studio 2017 which is used to build Carla, I was no longer able to build AirSim. 
+% \\~\\
+% As AirSim is built using a game engine, it would hopefully mean it is an easier environment to set up missing features. AirSim is also designed to simulate traffic, unlike Gazebo which is designed for a variety of simulations. 
+% \\~\\
+% \textbf{Carla:} Carla built successfully on Ubuntu following this guide\footnote{\url{https://carla.readthedocs.io/en/latest/build_linux}} and after doing these alterations:
+% \begin{itemize}
+%     \item As I was using Ubuntu 20.04 I had to install Python2/Pip2 using curl
+% \item Clang-8 was outdated so I installed Clang
+% \item Clang-Tools-8 was outdated so I installed Clang-Tools
+% \item lld-8 was outdated so I installed lld
+% \end{itemize}
+% However, as Unreal Engine did not build on Ubuntu I was unable to proceed from here and instead tried on Windows. Carla claims to work on Windows, but I ran into a build error which I was unable to resolve. This seems to be a known issue, and as of the time of writing, is still an unresolved issue on GitHub\footnote{\url{https://github.com/carla-simulator/carla/issues/3605}}. 
+% \\~\\
+% Another issue with Carla was the ability to import custom maps \cite{Carlamap}. Carla requires the map to consist of two layers. The first one being the map structure with buildings and roads, whilst the second one will consist of road rules, such as traffic lights, where the cars are allowed to drive, pedestrian crossings, and so on. RoadRunner\footnote{\url{https://uk.mathworks.com/products/roadrunner.html}} can be used to import maps, but this is not a free product.
+% \\~\\
+% \textbf{Gazebo:} Gazebo built successfully on Ubuntu\footnote{\url{http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install}}.
+% \\~\\
+% Gazebo has all the sensing features we are looking for \cite{Rosique2019}, such as GPS, LiDAR, RADAR, and Ultrasonic. One main drawback with Gazebo is the lack of existing APIs to interact with multiple entities at once. Even though the Gazebo platform has a lot of features, it is not as rich as Unreal Engine \cite{EbeidEmad2018AsoO}. 
+% \\~\\
+
+% \textbf{Conclusion:} As we are not able to build Carla, as well as it being very difficult to change maps, we will discard that one and look at comparing AirSim and Gazebo. 
+% \begin{itemize}
+%     \item AirSim and Unreal Engine is more feature-rich than Gazebo. Using Unreal Engine will also minimise chances of finding out something is not possible later on.
+%     \item Both have the ability to import maps quite easily
+%     \item Both have the ability to train machine learning models.
+%     \item AirSim has GPS and Lidar, but it is not clear if it has Ultrasonic or not. Gazebo has more sensing APIs in any case.
+%     \item Having multiple entities seems easier in AirSim than in Gazebo. 
+%     \item AirSim is designed for vehicles, whilst Gazebo is designed to be a more generic robotics platform. 
+%     \item Gazebo is more commonly used than AirSim. 
+% \end{itemize}
+% After looking at the information above we have chosen to go with AirSim for this project. This is because AirSim is a plugin for Unreal Engine and that gives us the option to extend the program to anything Unreal Engine allows us to do. 

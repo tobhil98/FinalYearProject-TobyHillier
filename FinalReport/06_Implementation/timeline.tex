@@ -1,0 +1,107 @@
+\newganttlinktype{rdldr*}{%
+  \draw [/pgfgantt/link]
+    (\xLeft, \yUpper) --
+    (\xLeft + \ganttvalueof{link bulge 1} * \ganttvalueof{x unit},
+      \yUpper) --
+    ($(\xLeft + \ganttvalueof{link bulge 1} * \ganttvalueof{x unit},
+      \yUpper)!%
+      \ganttvalueof{link mid}!%
+      (\xLeft + \ganttvalueof{link bulge 1} * \ganttvalueof{x unit},
+      \yLower)$) --
+    ($(\xRight - \ganttvalueof{link bulge 2} * \ganttvalueof{x unit},
+      \yUpper)!%
+      \ganttvalueof{link mid}!%
+      (\xRight - \ganttvalueof{link bulge 2} * \ganttvalueof{x unit},
+      \yLower)$) --
+    (\xRight - \ganttvalueof{link bulge 2} * \ganttvalueof{x unit},
+      \yLower) --
+    (\xRight, \yLower);%
+}
+\ganttset{
+  link bulge 1/.link=/pgfgantt/link bulge,
+  link bulge 2/.link=/pgfgantt/link bulge}
+%------------------------------------------------------------
+
+\ganttset{%
+calendar week text={%
+\footnotesize\currentweek%
+}%
+}
+
+\begin{ganttchart}[
+    hgrid,
+    vgrid={*{2}{draw=none},dotted,*{4}{draw=none}},
+    x unit=0.63mm,
+    time slot format=isodate,
+    link/.append style={thick},
+    milestone/.append style={xscale=6.5},
+    group peaks height=.2,
+    group peaks tip position=0,
+    group peaks width=2,
+    bar label font = \small,%\footnotesize,
+    group label font = \bf\small %\footnotesize,
+]{2021-01-01}{2021-06-25}
+\gantttitlecalendar{month=shortname, week} \\
+% Deliverables
+\ganttgroup{Assessed Deliverables}{2021-01-01}{2021-02-01}
+\ganttgroup{}{2021-03-01}{2021-06-21}\\
+\ganttbar[name=ir]{Interim Report}{2021-01-01}{2021-02-01}
+\ganttmilestone{}{2021-02-01}\\
+\ganttbar[name=fr]{Final Report}{2021-03-01}{2021-06-09} 
+\ganttmilestone{}{2021-06-16}\\
+\ganttlink{ir}{fr}
+\ganttbar{Presentation}{2021-06-07}{2021-06-18}
+\ganttmilestone{}{2021-06-21}\\
+% AirSim
+\ganttgroup[group left peak height=0]{AirSim Development}{2021-01-01}{2021-03-28} \\
+\ganttbar[name=lue4]{Learning UE4}{2021-01-01}{2021-02-21}\\
+\ganttbar[name=ped]{Import Street Maps}{2021-01-11}{2021-01-24} \\
+\ganttbar[name=ped]{Add Pedestrians}{2021-02-01}{2021-02-21} \\
+%\ganttmilestone{}{2021-02-21}\\
+\ganttbar[name=apiped]{Add APIs to pedestrians}{2021-02-21}{2021-03-17} \\
+%\ganttmilestone{}{2021-03-17}\\
+\ganttbar[name=eval]{Evaluation}{2021-03-17}{2021-03-28} \\
+%\ganttmilestone{}{2021-03-28}\\
+\ganttlink[link bulge=5, link mid=0.5]{ped}{apiped}
+\ganttlink[link bulge=5, link mid=0.5]{apiped}{eval}
+% Further work
+\ganttgroup{Further work TBD}{2021-03-01}{2021-06-06} \\
+\ganttbar{Planning}{2021-03-01}{2021-03-21}\\
+\ganttbar[name=d1]{Development}{2021-03-07}{2021-03-21}
+\ganttbar[name=d2]{}{2021-03-29}{2021-05-23}\\
+\ganttlink{d1}{d2}
+\ganttbar{Evaluation/Testing}{2021-05-14}{2021-06-06}\\
+
+
+
+
+% Other commitments
+\ganttgroup[group left peak height=0]{Other Commitments}{2021-01-01}{2021-03-28} \\
+\ganttbar{Course Work Deadlines}{2020-01-01}{2020-01-01}
+% CVPR
+\ganttmilestone{}{2021-02-19}
+\ganttmilestone{}{2021-03-19}
+% Crypto
+\ganttmilestone{}{2021-02-22}
+% DL
+\ganttmilestone{}{2021-02-05}
+\ganttmilestone{}{2021-02-19}
+\ganttmilestone{}{2021-03-05}
+
+% Somas
+\ganttmilestone{}{2021-01-15}\\
+
+
+% Exam
+\ganttbar{Exams}{2021-03-22}{2021-03-28}
+\ganttmilestone{}{2021-01-13}
+% Web-App
+%\ganttgroup{Web-App}{2021-03-29}{2021-05-30} \\
+%\ganttbar{Django Back-end}{2021-03-29}{2021-04-18} \\
+%\ganttbar{UI / UX}{2021-04-19}{2021-05-16} \\
+%\ganttlink[link bulge=4, link mid=0.5]{elem10}{elem11}
+%\ganttbar{REST API}{2021-04-26}{2021-05-16} \\
+%\ganttlink[link type=rdldr*, link bulge 1 = 4, link bulge 2=11, link mid=.25]{elem10}{elem12}
+%\ganttbar{Deploy App}{2021-05-17}{2021-05-30} 
+\end{ganttchart}
+

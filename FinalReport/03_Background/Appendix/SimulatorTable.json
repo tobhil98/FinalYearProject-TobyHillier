@@ -1,0 +1,633 @@
+{
+    "options": {
+        "latex-whitespace": true,
+        "latex-border": true,
+        "latex-command": true,
+        "latex-split": false,
+        "latex-landscape": true,
+        "latex-float": true,
+        "fit-table": "none",
+        "latex-hhline": true,
+        "latex-hhline-hash": false,
+        "latex-tabu": false,
+        "latex-color": false,
+        "latex-microfix-alignment": false,
+        "tex-escape": true,
+        "tex-macro": true,
+        "html-indent": "tab",
+        "html-tbody": false,
+        "html-remove-tag": false,
+        "csv-separator": ",",
+        "bbcode-header": "1",
+        "pretext-indent": "two",
+        "context-split": false,
+        "context-landscape": false,
+        "context-float": true,
+        "context-indent": "two",
+        "wml-indent": "four"
+    },
+    "autoBooktabs": false,
+    "caption": {
+        "caption": "",
+        "numbered": false,
+        "label": ""
+    },
+    "cells": [
+        [
+            {
+                "html": "<b>Simulator&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</b>"
+            },
+            {
+                "html": "<b>Open Source</b>"
+            },
+            {
+                "html": "<b>OS</b><span class=\"tb-footnote\" data-footnote-id=\"footnote57781\" title=\"&quot;Any&quot; means most commonly used Linux distributions, Windows and MAC\"></span>"
+            },
+            {
+                "html": "<b>Game Engine</b>"
+            },
+            {
+                "html": "<b>Development</b><span class=\"tb-footnote\" data-footnote-id=\"footnote15659\" title=\"&quot;Actively Developed&quot; \nmeans that there were several releases in the past year\"></span>"
+            },
+            {
+                "html": "<b>Support</b>"
+            },
+            {
+                "html": "<b>Pedestrians</b>"
+            },
+            {
+                "html": "<b>Extensibility</b>"
+            },
+            {
+                "html": "<b>Multiple Agents</b>"
+            },
+            {
+                "html": "<b>Existing APIs</b>"
+            },
+            {
+                "html": "<b>Worth Considering</b><span class=\"tb-footnote\" data-footnote-id=\"footnote72614\" title=\"The reasoning can be found in the appendix \\ref{Appendix}\"></span>"
+            }
+        ],
+        [
+            {
+                "html": "4DV-Sim<br>"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "Linux"
+            },
+            {
+                "html": "\\thead[l]{PhysX\\\\(Physics Engine)}"
+            },
+            {
+                "html": "\\thead[l]{Actively\\\\ Developed}"
+            },
+            {
+                "html": "Company offers support"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "No<br>"
+            }
+        ],
+        [
+            {
+                "html": "AirSim"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Any"
+            },
+            {
+                "html": "\\thead[l]{Primarily UE4,\\\\ but also Unity}"
+            },
+            {
+                "html": "\\thead[l]{Actively\\\\ Developed}"
+            },
+            {
+                "html": "GitHub Issues"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Yes<span class=\"tb-footnote\" data-footnote-id=\"footnote24889\" title=\"Multiple agents is possible, but in a very limited number and has to be declared at the start.\"></span>"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Yes"
+            }
+        ],
+        [
+            {
+                "html": "Apollo"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Docker"
+            },
+            {
+                "html": "Unity"
+            },
+            {
+                "html": "\\thead[l]{Actively\\\\ Developed}"
+            },
+            {
+                "html": "GitHub Issues"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "Difficult"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "No<br>"
+            }
+        ],
+        [
+            {
+                "html": "Autoware"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "ROS"
+            },
+            {
+                "html": "N/A"
+            },
+            {
+                "html": "\\thead[l]{Actively\\\\ Developed}"
+            },
+            {
+                "html": "GitLab Issues"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "Difficult"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "Limited<span class=\"tb-footnote\" data-footnote-id=\"footnote4622\" title=\"No sensing APIs\n\"></span>"
+            },
+            {
+                "html": "No<br>"
+            }
+        ],
+        [
+            {
+                "html": "Carla"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Linux"
+            },
+            {
+                "html": "UE4"
+            },
+            {
+                "html": "\\thead[l]{Actively\\\\ Developed}"
+            },
+            {
+                "html": "GitHub Issues"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Yes<br>"
+            }
+        ],
+        [
+            {
+                "html": "CrowdSim3D"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "Any"
+            },
+            {
+                "html": "N/A"
+            },
+            {
+                "html": "Unknown"
+            },
+            {
+                "html": "Company offers support"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "No<br>"
+            }
+        ],
+        [
+            {
+                "html": "Deep Drive"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Any"
+            },
+            {
+                "html": "UE4"
+            },
+            {
+                "html": "\\thead[l]{Last Commit\\\\ June 2020}"
+            },
+            {
+                "html": "GitHub Issues<br>"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "No<br>"
+            }
+        ],
+        [
+            {
+                "html": "\\thead[l]{Donkey Car\\\\ Simulator}"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Any"
+            },
+            {
+                "html": "Unity"
+            },
+            {
+                "html": "\\thead[l]{Actively\\\\ Developed}"
+            },
+            {
+                "html": "GitHub Issues"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "Limited"
+            },
+            {
+                "html": "No<br>"
+            }
+        ],
+        [
+            {
+                "html": "Gazebo"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Any"
+            },
+            {
+                "html": "\\thead[l]{Several different \\\\ physics engines}"
+            },
+            {
+                "html": "\\thead[l]{Actively\\\\ Developed}"
+            },
+            {
+                "html": "GitHub Issues"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Yes"
+            }
+        ],
+        [
+            {
+                "html": "LPZRobots"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Linux"
+            },
+            {
+                "html": "\\thead[l]{ODE\\\\(Physics Engine)}"
+            },
+            {
+                "html": "\\thead[l]{Last Commit\\\\ November 2018}"
+            },
+            {
+                "html": "Google Group<span class=\"tb-footnote\" data-footnote-id=\"footnote55711\" title=\"https://groups.google.com/d/forum/lpzrobots\"></span>"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "No<br>"
+            }
+        ],
+        [
+            {
+                "html": "\\thead[l]{LGSVL\\\\ Simulator}"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Windows 10"
+            },
+            {
+                "html": "\\thead[l]{Several, both \\\\ Unity and UE4}"
+            },
+            {
+                "html": "\\thead[l]{Actively\\\\ Developed}"
+            },
+            {
+                "html": "GitHub Issues"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Difficult"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Yes<br>"
+            }
+        ],
+        [
+            {
+                "html": "Marilou"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "\\thead[l]{Linux and,\\\\ Windows}"
+            },
+            {
+                "html": "N/A"
+            },
+            {
+                "html": "\\thead[l]{Latest release\\\\ was 2018}"
+            },
+            {
+                "html": "\\thead[l]{Company offers support\\\\ via Email}<br>"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "No<br>"
+            }
+        ],
+        [
+            {
+                "html": "rFpro"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "Windows"
+            },
+            {
+                "html": "ISIMotor"
+            },
+            {
+                "html": "\\thead[l]{Actively\\\\ Developed}"
+            },
+            {
+                "html": "Company offers support"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "No"
+            }
+        ],
+        [
+            {
+                "html": "Rig of Rods"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "\\thead[l]{Linux and,\\\\ Windows}"
+            },
+            {
+                "html": "\\thead[l]{Creates its own \\\\ soft-body physics engine}"
+            },
+            {
+                "html": "\\thead[l]{Actively\\\\ Developed}"
+            },
+            {
+                "html": "Forum<span class=\"tb-footnote\" data-footnote-id=\"footnote91774\" title=\"https://forum.rigsofrods.org/\"></span>"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "No"
+            }
+        ],
+        [
+            {
+                "html": "TORCS"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "\\thead[l]{Linux and,\\\\ Windows}"
+            },
+            {
+                "html": "\\thead[l]{Non, implemented \\\\ from scratch}"
+            },
+            {
+                "html": "\\thead[l]{Latest release\\\\ was 2016}"
+            },
+            {
+                "html": "Discussion page<span class=\"tb-footnote\" data-footnote-id=\"footnote20645\" title=\"https://sourceforge.net/p/torcs/discussion/11281/\"></span>"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "No"
+            },
+            {
+                "html": "No<br>"
+            }
+        ],
+        [
+            {
+                "html": "Webots"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Any"
+            },
+            {
+                "html": "\\thead[l]{ODE\\\\(Physics Engine)}"
+            },
+            {
+                "html": "\\thead[l]{Actively\\\\ Developed}"
+            },
+            {
+                "html": "GitHub Issues"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Yes"
+            },
+            {
+                "html": "Limited<span class=\"tb-footnote\" data-footnote-id=\"footnote7803\" title=\"Only sensing APIs\"></span>"
+            },
+            {
+                "html": "Yes<br>"
+            }
+        ]
+    ],
+    "version": "2.1"
+}

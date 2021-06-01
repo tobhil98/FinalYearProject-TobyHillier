@@ -1,0 +1,63 @@
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\section{Context}
+For the last decade there has been a lot of talk about self-driving cars and other autonomous systems \cite{markoff_2010}. Back in 2010 most autonomous systems were only driven on closed circuits, but today there are a variety of car manufacturers offering autopilot on their cars. In 2021 Tesla have announced that all new cars they produce will have the hardware needed for full automation in almost all circumstances \cite{teslaSelf}. 
+\\~\\ 
+Compared to 2010 when the autonomous cars were mainly driven on closed tracks, the modern-day self-driving car will have to operate alongside other cars on the road as well as alongside pedestrians.  This is where the concept of shared spaces comes in. The autonomous system must now take other entities into account when making decisions. 
+\\~\\ 
+As other entities’ actions can be complex to forecast, machine learning models can be used to predict the outcome of a situation more easily. These models can be trained much faster on a simulator than in real life. This is because the simulator can simulate many different configurations at once. An autonomous system in real life cannot replicate the exact same environment, whilst this can easily be done in a simulation.  
+\\~\\ 
+Another advantage of using a simulator is that you can learn from doing mistakes, whilst in real life, mistakes can be both dangerous and costly. In the simulator, the autonomous system can learn without the risk of colliding with an actual person or damaging other cars. Running simulations is therefore a good way to train the machine learning model much faster and safer than on a real road.  
+\\~\\ 
+The autonomous system does not have to be a vehicle, but anything that can artificial control itself. These could for example be mobile robots/wheelchairs or artificial controlled humans and cyclists. 
+\\~\\ 
+This project will consist of three main parts. The first one being to research available simulators (Section~\ref{BackgroundLit}). This will be necessary to get a good starting point for the project. Working on an existing simulator that is too complex would mean that it would take too long to get basic features working. Whilst working on a simulator that does not have enough features will mean that too much time will be spent implementing something that another simulator will already have implemented. Exactly what these features are will be clarified in the Project Specification chapter (Chapter~\ref{ProjectSpec}). 
+The second part will be to implement the missing features from the simulator that we selected to work on.
+And the last part will be to determine what to do next with the simulator after the missing features have been implemented. This is still open-ended, but some of the potential use cases will be discussed in the Implementation section (Section~\ref{FuturePlanning}).
+\\~\\ 
+The product generated from this project could be used for a variety of different use cases. Firstly it could be used to test the software for an autonomous system. Testing it in a simulator would be much faster than trying to check for corner cases in real life. Another example would be to train a machine learning model. The simulator will aim to be a diverse tool to accommodate a variety of needs. 
+
+\section{Project Specification} \label{ProjectSpec}
+\subsection{Objectives} \label{Objectives}
+The objectives of the project are: 
+\begin{itemize}
+    \item Survey the current state of the art in vehicle and mobile robot simulation and evaluate current simulators (e.g. CARLA, CrowdSim3D, Gazebo), list and understand the underlying simulation methodologies (e.g. types of physics engine), and understand and document their advantages and disadvantages, particularly in terms of their sensing and control abilities.
+    \item Select the most suitable current simulator that offers potential for incorporating mixed traffic (for example, cars, mobile robots/wheelchairs, humans, cyclists, and so on), and 3D environments/maps.
+    \item Create a process for incorporating and controlling agent models with an API (e.g. ability to add control abilities to the human model, for example to move their bodies, and to grasp objects).
+    \item Add sensors to the simulated agents (e.g. cameras, LIDARS) and a perception API, where simulation users can obtain sensing data from the simulator, for example what can the agents “see” in their environment.
+\end{itemize}
+
+
+%\\~\\
+%\\~\\
+
+Features that want to have in our simulator: 
+\begin{itemize}
+\item Be able to place agents
+\item Control the agents' behavior
+\item Access to what the agent sees as well as body movement
+\item Looking to plot a path for pedestrians
+\item Able to drive off the road, e.g. on the pavement and interact with pedestrians
+\item Want to easily create custom maps which are not whole worlds
+\item Does not need to handle a large number of pedestrians and vehicles
+\item Not looking to be able to navigate indoors
+\item Animation and realistic car movement is not important
+\end{itemize}
+(Source: After discussion in the supervisor meetings, 22/10 and 10/11)
+\subsection{Deliverables}
+The main deliverables for this project will be:
+\begin{itemize}
+    \item An analysis of available simulators with a conclusion for which one to use for the project.
+    \item A simulator with the ability to easily add additional models and simulate mixed traffic.
+    \item A simulator with the incorporated sensing and controlling APIs.
+    \item Documentation for how to use the two above points.
+\end{itemize}
+If time allows for it there could be a possibility of extending the project, but that is still to be determined (Section~\ref{Extensions}) 
+
+
+\section{Report Outline}
+%This is the interim report for my master's thesis titled "Mixed Traffic Simulation for Autonomous Systems in Shared Spaces". The report aims to present the initial background research and early implementation results \cite{studentGuideline}. The report will contain the following sections as suggested in the project guide:
+%\\ \tab The \emph{Introduction} chapter will establish the project outline and the expected deliverables. The chapter will also describe the context of the underlying problem the project will try to resolve.
+%\\ \tab The \emph{Background} chapter will first introduce the technical tools and theory needed to understand the project. This will include looking at what a game engine is, as well as briefly looking at the two major game engines used by most simulators. Thereafter comes an analysis of the simulators that have been studied with a conclusion for which simulator was chosen for this project. 
+%\\ \tab The \emph{Implementation} chapter will describe what work has been done in regards to the chosen simulator. The chapter will also contain an evaluation plan for how the project deliverables will be evaluated. In addition, the chapter will show the estimated timeline and possible extensions. 
+%\\ \tab And finally the \emph{Ethical, Legal and Safety Considerations} chapter which will look if there are any ethical legal or safety concerns both in regards to the project as is, but also briefly with potential extensions.
