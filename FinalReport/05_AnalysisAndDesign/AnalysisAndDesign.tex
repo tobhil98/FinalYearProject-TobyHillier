@@ -8,49 +8,76 @@ Figure~\ref{ADA:Figure:OriginalOverview} shows a simplified overview of the impo
 
 The project consists of 4 main components, Unity, which is written in C\# and contains most of the simulator logic, AirLib which is written in C++ and contains the server, the AirLib Wrapper which is written in C++ and acts as a bridge between AirLib and Unity, then finally the code where the user can interact with AirLib through the APIs. As this project is very modular, it gives the user the freedom and flexibility to choose a game engine and input language. 
 
-\begin{figure}[H]
+This section will contain a brief overview of each of the 4 components. This is to better understand the design decisions made in Section~\ref{05:ArchitecturalDesign}.
+
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{05_AnalysisAndDesign/Diagrams/OriginalOverview.png}
-    \caption{High-level overview of the core components of AirSim used for this project. Only one server exists.}
+    \caption{High-level overview of the core components of AirSim used for this project. Only one server exists and all API calls are passed to it.}
     \label{ADA:Figure:OriginalOverview}
 \end{figure}
 
 
-\subsection{AirLib}
+\subsection{AirLib} \label{05:AirLib}
+AirLib is the main component of AirSim and where the majority of the code is located \cite{}. This self-contained library consists of four main components. The first one is a physics engine. This component is lightweight and designed to be simple to add new vehicles and drones. The next component is a sensor model. This component contains header-only models for external sensors such as GPS and Barometer. The third component is the vehicle module. Currently, the only model implemented is for PX4 QuadRotor\footnote{\url{https://docs.px4.io/master/en/getting\_started/}}, which is a platform that can be used to control drones. The last component is the control library. This part provides abstract classes for the APIs and implementations for specific platforms. 
+
+This project does not use the physics engine, sensors module and vehicle modules in AirLib. The project is instead using the Unity version of these components. Instead, this project focuses almost solely on extending the control library. On startup, AirLib creates AirLib creates a server using RPCLib\footnote{\url{https://github.com/rpclib/rpclib}} which can interact with the APIs over a TCP channel. The advantage of using RPC is that it allows for a range of different programs as well as being fast and lossless (Section~\ref{05:UIL}). The design decision to move the physics engine and sensors to Unity is further discussed in Section~\ref{05:ArchitecturalDesign}. 
 
 \subsection{AirLib Wrapper}
+A wrapper is used for AirLib to communicate with Unity. Using a wrapper allows for a variety of different game engines as well as other physical systems such as ROS. This makes AirSim more modular, which again can increase the extensibility of the program. The wrapper will implement the interfaces declared in the vehicle module (Section~\ref{05:AirLib}). At startup, Unity will pass function pointers to the wrapper so that later the APIs can call those functions. The wrapper will also create an instance of AirLib which will set up the RPC server. The wrapper also handles the conversion of the data from C\# to C++.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{05_AnalysisAndDesign/Diagrams/UnityWrapper2.png}
+    \caption{A simplified view of how AirLib and the Unity Wrapper link together. UnityToAirSimCalls and PInvokeWrapper are red boxes to illustrate that they are only files containing functions. The other objects are classes. The black arrows show examples of functions calls. The details of how Unity starts the server is left out in this diagram.} \label{05:fig:UnityWrapper}
+\end{figure}
+
+Figure \ref{05:fig:UnityWrapper} shows an example of how AirLib links to the Unity Wrapper. AirLib has an interface for the available APIs that are then overridden in the wrapper. These overridden member functions will then access the function pointers initialised at startup by Unity. This is done by having Unity call the InitServerManager with the arguments being the function pointers. As was explained in Section~\ref{05:AirLib}, the API interacts with the server initialised at startup. In this case, the server is stored in the SimulatorServer class and will call functions overridden from the ServerSimApiBase class. Unity can also make calls to the wrapper at runtime. These are done through the UnityToAirSimCalls. The figure shows a slightly simplified for how Unity can start and stop the server. To create the server, the wrapper creates a new instance of the ApiServerBase and initialises it with a pointer to the ServerSimApi. It is clear from this figure that another game engine can easily be used by changing the overridden functions. 
+
 
 \subsection{AirSim with Unity}
+As will be discussed in Section~\ref{05:AD:UEvUnity}, Unity was chosen as the game engine for this project. Unity works as the physics engine and all of the simulator logic is solely done in Unity. One of the disadvantages of using Unity is that it is not thread-safe. This means that the AirSim plugin has to interact with the simulation through shared memory. This will be explained further in the implementation section (Section~\ref{06:airsim}). All of the simulator logic is solely done in Unity.
 
-\subsection{User Interaction Layer}
+AirSim works as a plugin for Unity. AirLib and the wrapper are compiled into a single DLL file which can be interacted with through Unity. This allows the user to use all the features in Unity when creating maps and environments. This also makes it easy to set up an AirSim environment as only the DLL and a setup object has to be added to the scene.  
+
+
+\subsection{User Interaction Layer} \label{05:UIL}
 AirSim allows for a variety of different languages to interact with AirLib. This is because the API calls use MessagePack\footnote{\url{https://msgpack.org/}} also known as MsgPack. MsgPack allows for an efficient binary serialisation\footnote{\url{https://github.com/msgpack/msgpack/blob/master/spec.md}}. MessagePack supports over 50 programming languages and environments. These include C\#, Golang, Haskell and others.  For this project, only Python will be used. This is because Python is a flexible language that makes prototyping quick and easy. The existing code for the user interaction layer is already written in Python, so it will be more beneficial to continue with this rather than starting from scratch.
 
 In the Python project, three classes are implementing the APIs for each of the servers. This is to make it clear which type of entity the user is communicating with. It also avoids confusion when passing controls to the simulator, as pedestrian and vehicles use different controls. Python allows for external tools like OpenCV to process the images passed from the Simulator. Figure~\ref{} shows a diffusion map generated by OpenCV using two images created by forward-facing cameras on a car. The diffusion map highlights objects that are shifted more between the two images, i.e. the object has to be closer. 
 
 
 
-\begin{figure}[H]
+
+
+
+
+
+
+\section{Architectural Design and Limitations} \label{05:ArchitecturalDesign}
+This section will look at some of the architectural decisions made when modifying the existing AirSim design. The section will also look at what limitations were introduced by these decisions. Section~\ref{06:airsim} will go into more detail about how the design decisions were implemented. 
+
+
+\subsection{Unreal Engine or Unity} \label{05:AD:UEvUnity}
+After AirSim was chosen as the simulator, the main decision to be made was which game engine to use. AirSim primarily uses Unreal Engine, but there is also a prototype version using Unity. As mentioned in the background section (Section~\ref{GameEngines}), Unreal Engine has better graphics than Unity. Using Unreal Engine would also mean that the simulator more complete with many more features available such as dynamic weather, more sensors and more APIs. Generally, Unreal Engine also has better performance than Unity\cite{vsmid2017comparison}. The disadvantage of using Unreal Engine is that it makes it harder to rapidly prototype and add new features. This is because the existing code is much more complex. It is also because Unreal Engine is not as simple to use as Unity. In Unity, the simulator can run in debug mode making it possible to update scripts whilst the program is running. This is not possible in Unreal Engine where a small change can take a couple of minutes to compile. 
+
+There are several advantages to using Unity over Unreal Engine. Firstly, Unity's asset store provides a large range of plugins and models that can be used. The key ones that are of interest for this project are the UMA models (Unity Multipurpose Avatar), which can be added to model pedestrians, and the ML-Agents tool kit, which can be used to train reinforcement learning models. Both of these addons will be explained further in the implementation section (Section~\ref{06:airsim}). The second advantage of using Unity is the simplicity of having scripts. This makes debugging simpler as the scripts can be interacted with at runtime. The scripts can also be attached to objects which makes it easy to create several instances of an entity. Another advantage is that as using Unity as the game engine is currently only an experimental version, only the most important features have been implemented. This makes the existing code easier to navigate than the code written for Unreal Engine. This can also be seen as a disadvantage of using Unity. As only a few APIs have been implemented, a lot of work has to be put in to have the same features available in Unity as currently are available in Unreal Engine\footnote{\url{https://microsoft.github.io/AirSim/unity_api_support.html}}. 
+
+Overall using Unity for this project would be more beneficial than using Unreal Engine. Unity allows for rapid prototyping which is more important for this project. Unity's ML-Agent also makes it easier to train reinforcement models for the part of the autonomous system of this project. 
+
+\subsection{Moving logic to Unity}
+Section~\ref{05:AirLib} explained how AirLib is split into four parts and that this project would only focus on the vehicle module. AirSim is designed in such a way that software components are easily exchangeable. As can be seen from Figure~\ref{ADA:Figure:OriginalOverview}, ROS, which is a robot operation system, could be used instead of a game engine. AirSim would then be able to model the behaviour of the real robot without needing the game engine. As this project would only focus on the simulation, this was not a feature that was needed. Instead, it was easier to move all the physics calculation to Unity along with other logic such as controlling the vehicles. Making this design decision would make it much easier when adding the pedestrians. Currently, the physics engine in Unity would need a redesign to get something like autonomous wheelchairs and pedestrians to work.
+
+The consequence of this is that the simulation behaviour could differ between the different game engines. AirSim would also not work for pedestrians without the Unity game engine. As this project is only a prototype, the simplification of moving the logic to Unity will still be beneficial. 
+
+% Modularity
+\subsection{Dividing the server}
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\textwidth]{05_AnalysisAndDesign/Diagrams/UpdatedOverview.png}
+    \includegraphics[width=0.5\textwidth]{05_AnalysisAndDesign/Diagrams/UpdatedOverview.png}
     \caption{Separate APIs into several servers on different ports. This makes it easier to expand the APIs and add additional features.}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{05_AnalysisAndDesign/Diagrams/UnityWrapper2.png}
-    \caption{A simplified view of how AirLib and the Unity Wrapper link together.}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\textwidth]{05_AnalysisAndDesign/Diagrams/stringArray.png}
-    \caption{High-level overview of the API that fetches available vehicle types. For APIs that require arguments, these will be encoded and added to the API request. The main change between different API requests is what happens in Unity.}
-\end{figure}
-
-\section{Architectural Design}
-% Modularity
-\paragraph{Dividing the server}
-\paragraph{Moving logic to Unity}
-\paragraph{Simplifications}
+%\subsection{Simplifications}
 \section{Architectural Limitations}
 
