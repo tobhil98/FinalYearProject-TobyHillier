@@ -2,7 +2,7 @@ This chapter provides a high-level overview of the core components of the AirSim
 
 As the project is extending an existing code-base, the design decisions aimed to limit the impact on the existing structure. This was to allow future updates to the master project, to benefit this one as well. Most of the changes to this project were made in Unity, but changes were also made in AirLib and the wrapper to allow for additional APIs. 
 
-\section{AirSim Functional Overview}
+\section{AirSim Functional Overview} \label{05:Overview}
 Figure~\ref{ADA:Figure:OriginalOverview} shows a simplified overview of the important components in the original AirSim architecture. It is key to understand each of these components, as they are all updated throughout the project. 
 
 
@@ -72,11 +72,44 @@ The consequence of this is that the simulation behaviour could differ between th
 
 % Modularity
 \subsection{Dividing the server}
+The decision to split the server in AirLib was the main change to the existing design of AirSim. This design change was needed for several reasons. Firstly, how the server is implemented currently, all API calls are single-threaded, which means that one call has to be processed before the next one is handled. This makes the API that captures images slow as it has to wait for one game tick before returning the image. (See Figure~\ref{06:imageCapture} in Section~\ref{06:airsim}). Another reason for doing this was to simplify the code structure. As can be seen from Firgure~\ref{05:SplitServer}, dividing the AirLib server to handle the game state, vehicles and pedestrians separately was a natural split, especially as the pedestrians would introduce a large number of new APIs. This split would make it clear which entity is being controlled and which APIs are available. Also, in the current design, the server only exists if there is a vehicle in the scene. If the vehicle is removed, the server is closed. This also means that there has to be a vehicle in the scene to start the server.  This is not the desired behaviour as a user would want to be able to spawn in and delete both vehicles and pedestrians at any time. 
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{05_AnalysisAndDesign/Diagrams/UpdatedOverview.png}
-    \caption{Separate APIs into several servers on different ports. This makes it easier to expand the APIs and add additional features.}
+    \caption{Separate APIs into several servers on different ports. This makes it easier to expand the APIs and add additional features.}\label{05:SplitServer}
 \end{figure}
+
+The division was done by replicating a simplified version of the server creation and then moving the APIs for the game state over to this one. As mentioned in the functional overview (Section~\ref{05:Overview}) AirLib has a lot of features that this project does not need. When replicating the server initialisation, these parts were left out. In Unity, the code was changed in such a way that at startup, the game server will start, and the user can communicate with the server, such as printing, spawning and deleting vehicles and pedestrians, and so on. When the first vehicle is spawned the server vehicle server will start, and when the last is deleted, the server will close. This behaviour is the same for the pedestrians. 
+
+This project benefits in several ways when dividing the server. Firstly, as mentioned above, the server would now start running at startup. This means that users can control the game state without vehicles having to be in the scene. Secondly, dividing the APIs makes the code more readable. Originally it is difficult to see if an API call acts on the server or the vehicle. Another benefit of the split is that the game server can communicate instantly with the server instead of having to wait for the other calls to the vehicle server to finish. Finally, with the current implementation, it would be easy to open up a separate server for every vehicle. This could be beneficial as separate scripts could run a specific vehicle. This change is now possible as the code is designed in such a way that it can start a new server on request. 
+
+However, there are several limitations and disadvantages to this new approach. Firstly, if too many servers are launched the overhead will be too big and the performance would decrease. Currently, this is not an issue with only three servers, but with one server per entity, this could be slow. Secondly, if for example, a developer wants to use a different means of communication for the APIs, rather than RPC, this would require several changes in multiple files. Finally, as this is a major change to the existing AirSim, pulling new features from the master repository will no longer be straightforward. 
+
+Overall the benefits still outweigh the disadvantages. As having multiple entities in the scene at once is a key part of this project, separating the APIs relating to the game from the APIs relating to the vehicle allows for this. This also works as a proof of concept if performance becomes an issue and a server per entity becomes needed. 
+
+
+%Why was this needed.
+% •	Server was only single threaded
+% •	This meant slow especially when getting images
+% •	Pedestrian controls were different. Make it easier to distinguish between the two.
+% •	Separate server controlling APIs
+% •	Limit the number of API calls going to one serverS
+% How was this done
+% •	Extract Server APIs from the existing vehicle server
+% •	Create Pedestrian API server from scratch. 
+% How does it improve things	
+% •	Makes it more readable as everything is not in one big class.
+% •	Makes it possible to control pedestrians and vehicles from different scripts
+% •	A simple modification can be made to set up even more servers, for example one per entity.
+% •	If multiple servers was created they would still communicate in the same way with Unity, so every instance could still talk to every entity. 
+% •	Simulator at startup
+% What does it break/limitations
+% •	If for example wanted to use different communications means than RPC, this would require changes in several files. 
+% •	In some ways not as easy to navigate as all the code is not in one place. 
+% •	Increased server overhead. (Not much for 3, but if there were over 100 this could be a problem. 
+% •	As this is a major change to AirLib, future updates to AirSim will not be incorporated automatically. 
+
 
 %\subsection{Simplifications}
 %\section{Architectural Limitations}
