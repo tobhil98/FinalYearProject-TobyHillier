@@ -93,6 +93,11 @@
 
 \usepackage[section]{placeins}
 
+\usepackage[toc,page]{appendix}
+
+% Paragraph setup
+\usepackage{parskip}
+\emergencystretch 3em
 
 \ifxetex
 \usepackage{fontspec}
@@ -128,12 +133,15 @@
 \newenvironment{example}[1][]
 { 
 \vspace{4mm}
-\noindent\makebox[\linewidth]{\rule{\hsize}{1.5pt}}
+%\noindent
+\makebox[\linewidth]{\rule{\hsize}{1.5pt}}
 \textbf{Example #1}\\
 }
 { 
-\noindent\newline\makebox[\linewidth]{\rule{\hsize}{1.0pt}}
+%\noindent
+\newline\makebox[\linewidth]{\rule{\hsize}{1.0pt}}
 }
+
 
 
 
@@ -148,7 +156,7 @@
 %\renewcommand*{\rmdefault}{iwona} % Avant Garde
 \fi
 
-\setlength{\parindent}{0em}  % indentation of paragraph
+%\setlength{\parindent}{0em}  % indentation of paragraph
 
 %\setlength{\headheight}{14.5pt}
 \pagestyle{fancy}

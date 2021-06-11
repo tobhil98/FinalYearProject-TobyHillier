@@ -12,13 +12,14 @@
 
 \textbf{Cons:} It is not designed to train machine learning implementations on the simulator, but rather emulate a current hardware setup. Also, as it is not open source, it will not be something that we could modify or expand upon to suit our purposes. 
 
-\textbf{Conclusion:} As 4DV-Sim is not an open-source product it is not something that we can use for this project. It is however interesting to see that simulators like this are needed not just for research purposes, but for customers who want to try out their hardware setup in an emulated environment.
+\textbf{Conclusion:} As 4DV-Sim is not an open-source product it is not something that can be used for this project. It is however interesting to see that simulators like this are needed not just for research purposes, but for customers who want to try their hardware setup in an emulated environment.
 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{03_Background/Appendix/Simulators/4DV-Sim.jpg}
-    \caption{Source: \url{https://www.4d-virtualiz.com/en/automotive-simulator}}
+    \caption{4DV-Sim has most of the features this project is looking for, but not open-source so cannot be used.}
+    \source{\url{https://www.4d-virtualiz.com/en/automotive-simulator}}
 \end{figure}
 
 %%%%%%%% AirSIM %%%%%%%%%%
@@ -40,7 +41,8 @@
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{03_Background/Appendix/Simulators/AirSim.JPG}
-    \caption{Source: \url{https://microsoft.github.io/AirSim}}
+    \caption{AirSim is missing pedestrians and a few other features. However, the simulator is very flexible and adding new features should not be too difficult.}
+    \source{\url{https://microsoft.github.io/AirSim}}
 \end{figure}
 
 %%%%%%%% Apollo %%%%%%%%%%
@@ -57,12 +59,13 @@
 
 \textbf{Cons:} It looks like quite a complex simulator, and it does therefore not seem like it will be easy to modify. The product is really specific towards training autonomous vehicles. 
 
-\textbf{Conclusion:} Due to the complexity of this simulator, it does not look like something that we could build upon for this project. 
+\textbf{Conclusion:} Due to the complexity of this simulator, it does not look like something that can easily be extended for this project. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{03_Background/Appendix/Simulators/Apollo.JPG}
-    \caption{Source: Slide deck from Apollo Game Engine Based Simulation Talk at GDC 2019 - \url{https://bit.ly/2VSzwlF}}
+    \caption{Apollo has realistic models and is designed for training machine learning models. However, due to its complexity it looks too challenging to adapt for this project.}
+    \source{Slide deck from Apollo Game Engine Based Simulation Talk at GDC 2019 - \url{https://bit.ly/2VSzwlF}}
 \end{figure}
 
 %%%%%%%% Autoware %%%%%%%%%%
@@ -96,14 +99,41 @@
 
 \textbf{Cons:} Difficult to add new and custom maps. Vehicle handling is not as realistic as some of the other simulators.
 
-\textbf{Conclusion:} Carla is worth looking into further as it has most of the features that we are looking for.
+\textbf{Conclusion:} Carla is worth looking into further as the simulator already has most of the features the project is looking for.
 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{03_Background/Appendix/Simulators/Carla.JPG}
-    \caption{Source: \url{https://www.unrealengine.com/en-US/spotlights/carla-democratizes-autonomous-vehicle-r-d-with-free-open-source-simulator}}
+    \caption{Carla is a simulator designed for mixed traffic simulation and covers most of the features the project is looking for.}
+    \source{\url{https://www.unrealengine.com/en-US/spotlights/carla-democratizes-autonomous-vehicle-r-d-with-free-open-source-simulator}}
 \end{figure}
+
+
+%%%%%%%% CoppeliaSim %%%%%%%%%%
+\subsection{CoppeliaSim} \label{CoppeliaSim}
+\textbf{Description:} CoppeliaSim\footnote{\url{https://www.coppeliarobotics.com/}} is an open-source simulator designed for education and robotics research. The simulator is actively maintained by Coppelia Robotics, based in Switzerland. CoppeliaSim is primarily designed for different robots, such as pick\-and\-place machines and other human interactable robots. 
+
+\textbf{Open Source:} CoppeliaSim itself is open source. However, it uses geometric plugin which can be used to calculate distances and detect object collisions. The licences for this plugin are free for educational purposes\footnote{\url{https://www.coppeliarobotics.com/helpFiles/en/licensing.htm}}. 
+
+\textbf{Operating System:} Any operating system. The projects are cross platform. 
+
+\textbf{Game Engine:} Supports several different physics engines. Bullet, ODE, Vortex Studio and Newton Dynamics. 
+
+\textbf{Pros:} The simulator has a lot of existing APIs which can be used to interact with the simulator. Offers a variety of physics engines to improve the simulator accuracy. The simulator also lets users create accurate robotics models. 
+
+\textbf{Cons:} This simulator is not directly designed for traffic like some of the other simulators. It also looks difficult to change the simulator itself.
+
+\textbf{Conclusion:} CoppeliaSim is not a simulator worth considering for this project as it seems to difficult to add custom features and APIs to the simulator itself. 
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{03_Background/Appendix/Simulators/CoppeliaSim.JPG}
+    \caption{CoppeliaSim is primarily designed for robotics simulation. Does not focus on cars and traffic as much as other simulators}
+    \source{\url{https://www.youtube.com/watch?v=MrwU6wJNTAc&t=23s}}
+\end{figure}
+
 
 
 %%%%%%%% CrowdSim3D %%%%%%%%%%
@@ -120,12 +150,13 @@
 
 \textbf{Cons:} Does not look to be designed for machine learning models. Difficult to add new models. Also, as it is not open source it will not be possible to customise the product. 
 
-\textbf{Conclusion:} CrowdSim3D is not worth considering as we cannot adapt the product as it is not open source. 
+\textbf{Conclusion:} CrowdSim3D is not worth considering as the product cannot be adapted as it is not open source. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{03_Background/Appendix/Simulators/CrowdSim.JPG}
-    \caption{Source: \url{https://crowdsim3d.com}}
+    \caption{As CrowdSim3D is not open source, the simulator cannot be modified to add missing features.}
+    \source{\url{https://crowdsim3d.com}}
 \end{figure}
 
 
@@ -133,7 +164,7 @@
 \subsection{Deep Drive}
 \textbf{Description:} Deep Drive\footnote{\url{https://deepdrive.voyage.auto/}} is an open-source simulator aimed to train neural networks for self-driving cars \cite{DeepDrive_Website}. They also provide you with a large data set to train your autonomous vehicle on. 
 
-\textbf{Open Source:} yes
+\textbf{Open Source:} Yes
 
 \textbf{Operating System:} Any operating system
 
@@ -143,12 +174,13 @@
 
 \textbf{Cons:} Currently there are three maps available, but it is not easy to add your own maps. Also, it is not designed to be customised. Currently, there are no pedestrians and no APIs.
 
-\textbf{Conclusion:} Deep Drive is not a simulator that is worth looking at as it is not designed to be customised. It also lacks most of the features we are looking for. 
+\textbf{Conclusion:} Deep Drive is not a simulator that is worth looking at as it is not designed to be customised. It also lacks most of the features looked for. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{03_Background/Appendix/Simulators/DeepDrive.JPG}
-    \caption{Source: \url{https://deepdrive.voyage.auto}}
+    \caption{Deep Drive is mainly aimed at training machine learning models. The simulator also has no existing APIs making it difficult to add some from scratch.}
+    \source{\url{https://deepdrive.voyage.auto}}
 \end{figure}
 
 %%%%%%%% Donkey Car Simulator %%%%%%%%%%
@@ -165,13 +197,14 @@
 
 \textbf{Cons:} Not what we are looking for as it is only used to train a real toy car.
 
-\textbf{Conclusion:} Donkey Car is an interesting project to read about as it is a fun kit that introduces people to autonomous cars. However, it is not what we are looking for for this project as the simulator is not customisable and there is only one vehicle. 
+\textbf{Conclusion:} Donkey Car is an interesting project to read about as it is a fun kit that introduces people to autonomous cars. However, it is not a simulator that would be worth extending for this project as the simulator is not customisable and there is only one vehicle. 
 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{03_Background/Appendix/Simulators/DonkeySim.jpg}
-    \caption{Source: \url{https://docs.donkeycar.com}}
+    \caption{Donkey Car Simulator allows the user to create a digital twin to train a machine learning model that can be applied to the physical car.}
+    \source{\url{https://docs.donkeycar.com}}
 \end{figure}
 
 %%%%%%%% Gazebo %%%%%%%%%%
@@ -194,7 +227,8 @@
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{03_Background/Appendix/Simulators/gazebo.png}
-    \caption{Source: \url{http://gazebosim.org/blog/vehicle\%20simulation}}
+    \caption{Gazebo is a robotics simulator that can be used for autonomous vehicles. A very versatile simulator with a large variety of use cases.}
+    \source{\url{http://gazebosim.org/blog/vehicle\%20simulation}}
 \end{figure}
 
 
@@ -212,12 +246,13 @@
 
 \textbf{Cons:} The code has not been updated since 2018 and the last release was in 2016. Unlike other simulators, this one does not seem to have an active community. 
 
-\textbf{Conclusion:} As the development of the LPZRobots simulator has been inactive for several years, makes it not worth considering. The simulator also lacks most of the features we are looking for. 
+\textbf{Conclusion:} As the development of the LPZRobots simulator has been inactive for several years, makes it not worth considering. The simulator also lacks most of the features this project is looking for. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{03_Background/Appendix/Simulators/LPZRobots.png}
-    \caption{Source: \url{https://itp.uni-frankfurt.de/~gros/StudentProjects/Robots\_2016\_ObstacleAvoidance}}
+    \caption{LPZRobots is an open platform robotics simulator. This simulator has not had an update since 2018 however.}
+    \source{\url{https://itp.uni-frankfurt.de/~gros/StudentProjects/Robots\_2016\_ObstacleAvoidance}}
 \end{figure}
 
 
@@ -236,12 +271,13 @@
 
 \textbf{Cons:} Relies on a lot of different components. The codebase is therefore large and complex and it looks difficult to add our own features such as our own entity.
 
-\textbf{Conclusion:} The LGSVL Simulator would probably not work for us as the code-base seems too large and complex.
+\textbf{Conclusion:} The LGSVL Simulator would probably not work for this project as the code-base seems too large and complex making it difficult to extend.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{03_Background/Appendix/Simulators/LGSVL.jpg}
-    \caption{Source: \url{https://www.lgsvlsimulator.com/about}}
+    \caption{LGSVL is a very complex simulator using several different game engines. However, most of the features this project is looking for are implemented}
+    \source{\url{https://www.lgsvlsimulator.com/about}}
 \end{figure}
 %https://github.com/lgsvl/simulator
 
@@ -259,12 +295,13 @@
 
 \textbf{Cons:} As the simulator is not open source, we cannot modify its behavior. Latest release 2018.
 
-\textbf{Conclusion:} Marilou is not a simulator that we can use for this project as it is not open source. In addition, it is not designed with APIs in mind and controlling multiple objects at once looks impossible in the current program. 
+\textbf{Conclusion:} Marilou is not a simulator that can be used for this project as it is not open source. In addition, it is not designed with APIs in mind and controlling multiple objects at once looks impossible in the current program. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{03_Background/Appendix/Simulators/Marilou.jpg}
-    \caption{Source: \url{http://www.anykode.com/downloads.php}}
+    \caption{Marliou is not able to control multiple entities as once, and as the simulator is not open source, this is not something that can be added.}
+    \source{\url{http://www.anykode.com/downloads.php}}
 \end{figure}
 
 
@@ -287,7 +324,8 @@
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{03_Background/Appendix/Simulators/rFpro.jpg}
-    \caption{Source: \url{http:https://www.rfpro.com/driving-simulation}}
+    \caption{rFPro contains most of the features this project is looking for. However, the project is not open source, and can therefore not be extended.}
+    \source{\url{http:https://www.rfpro.com/driving-simulation}}
 \end{figure}
 
 %%%%%%%% Rigs of Rods %%%%%%%%%%
@@ -304,12 +342,13 @@
 
 \textbf{Cons:} There are no APIs currently available. 
 
-\textbf{Conclusion:} As for this project, we are not looking for realistic features, but rather certain APIs. This simulator will require too much work to add the missing features. It is therefore not a simulator that is worth considering. 
+\textbf{Conclusion:} As for this project, realistic features is not something that is required, but rather certain APIs. This simulator will require too much work to add the missing features. It is therefore not a simulator that is worth considering. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{03_Background/Appendix/Simulators/RoR.png}
-    \caption{Source: \url{https://docs.rigsofrods.org/gameplay/beginners-guide}}
+    \caption{Rigs of Rods is the only soft-body simulator looked at. Currently there are no implemented APIs making it difficult to use for this project.}
+    \source{\url{https://docs.rigsofrods.org/gameplay/beginners-guide}}
 \end{figure}
 
 
@@ -327,12 +366,13 @@
 
 \textbf{Cons:} Latest release 2016 but mainly developed in 2008. Also, has no available APIs and no pedestrians.
 
-\textbf{Conclusion:} This simulator is lacking most of the features we are looking for. It is also quite outdated. TORCS is therefore not worth considering. 
+\textbf{Conclusion:} This simulator is lacking most of the features this project is looking for. It is also quite outdated. TORCS is therefore not worth considering. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{03_Background/Appendix/Simulators/TORCS.png}
-    \caption{Source: \url{https://sourceforge.net/projects/torcs}}
+    \caption{TORCS is a simple simulator, but has not been updated since 2016. There are also a lot of missing features such as pedestrians.}
+    \source{\url{https://sourceforge.net/projects/torcs}}
 \end{figure}
 
 %%%%%%%% Webots %%%%%%%%%%
@@ -349,14 +389,15 @@
 
 \textbf{Cons:} There does not seem to be many APIs to control multiple entities. All the APIs are mainly used for sensing. 
 
-\textbf{Conclusion:} Webots has most of the features that we are looking for, however seems to lack the ability to easily control multiple entities at once. The simulator also seems less advanced than Gazebo (Section~\ref{gazebo}), so as an open area robotics simulator, we will rather look at that one first. We will therefore not be considering Webots.
+\textbf{Conclusion:} Webots has most of the features that this project is looking for, however seems to lack the ability to easily control multiple entities at once. The simulator is also less advanced than Gazebo (Section~\ref{gazebo}), which could make it easier to add missing features in Webots. This simulator is therefore worth considering.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{03_Background/Appendix/Simulators/Webots.jpg}
-    \caption{Source: \url{https://www.cyberbotics.com/doc/automobile/city-night}}
+    \caption{Webots is an open area robotics simulator which can simulate vehicles and pedestrians. However the simulator is currently lacking implemented APIs}
+    \source{\url{https://www.cyberbotics.com/doc/automobile/city-night}}
 \end{figure}
 
-\subsection{Conclusion}
-After looking at the different simulators we decided to look further into AirSim (Section~\ref{AirSimDoc}), Carla (Section~\ref{Carla}) and Gazebo (Section~\ref{gazebo}). These are the simulators that will hopefully be the easiest to adapt and modify to suit our needs. In the next section, Analysis of Competing Product (Section~\ref{AoCP}), we will look at which of these three simulators to go for. 
+%\subsection{Conclusion}
+%After looking at the different simulators we decided to look further into AirSim (Section~\ref{AirSimDoc}), Carla (Section~\ref{Carla}) and Gazebo (Section~\ref{gazebo}). These are the simulators that will hopefully be the easiest to adapt and modify to suit our needs. In the next section, Analysis of Competing Product (Section~\ref{AoCP}), we will look at which of these three simulators to go for. 
 %https://www.hisour.com/robotics-simulator-42971/
