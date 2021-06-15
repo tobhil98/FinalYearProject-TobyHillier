@@ -16,7 +16,9 @@
 %----------------------------------------------------------------------------------------
 \textsc{\huge \reporttype}\\[1.5cm] 
 \textsc{\LARGE Imperial College London}\\[0.5cm] 
-\textsc{\Large Department of Electronic and Electrical Engineering}\\[0.5cm] 
+\textsc{\Large Department of Electrical and Electronic Engineering}\\[0.5cm] %[0.5cm] 
+
+    \vspace{1cm}
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION
 %----------------------------------------------------------------------------------------
@@ -28,30 +30,54 @@
 %----------------------------------------------------------------------------------------
 %	AUTHOR SECTION
 %----------------------------------------------------------------------------------------
-
-%\begin{minipage}{0.4\hsize}
-\begin{flushleft} \Large
-\textit{Author:}\\
-\reportauthor~(CID: \cid) % Your name
-\end{flushleft}
+\begin{center}
 \vspace{1cm}
+\begin{minipage}[t]{0.4\hsize}
+    \begin{flushleft} \Large
+    \textit{Student:}\\
+    \reportauthor
+    \end{flushleft}
+    \vspace{0.4cm}
+    
+    \begin{flushleft} \Large
+    \textit{CID:}\\
+    \cid %~(CID: \cid) % Your name
+    \end{flushleft}
+    \vspace{1cm}
 
+\end{minipage}~\begin{minipage}[t]{0.4\hsize}
+    \begin{flushright} \Large
+    \textit{Project supervisors:}\\
+    \supervisor \\%~(CID: \cid) % Your name
+    \supervisorassistant
+    \end{flushright}
+    \vspace{1cm}
+
+
+% \begin{flushright} \Large
+% \textit{Cosupervisor:}\\
+% \supervisorassistant
+% \end{flushright}
+% \vspace{1cm}
+
+
+    \begin{flushright} \Large
+    \textit{Second Marker:}\\
+    \secondmarker\\
+    \end{flushright}
+\end{minipage}
+\end{center}
+
+\vspace{7cm}
 \begin{flushleft} \Large
-\textit{Supervisors:}\\
-\supervisor \\%~(CID: \cid) % Your name
-\supervisorassistant
+\centering
+\textit{MEng Electonic and Information Engineering}
+%\vspace{1cm}
 \end{flushleft}
-\vspace{1cm}
-
-
-
-\begin{flushleft} \Large
-\textit{Second Marker:}\\
-\secondmarker\\
-\end{flushleft}
-\vspace{2cm}
+\Large
 \makeatletter
-Date: \@date 
+\centering
+\@date 
 
 \vfill % Fill the rest of the page with whitespace
 

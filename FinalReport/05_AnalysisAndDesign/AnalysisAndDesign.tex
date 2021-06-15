@@ -5,11 +5,6 @@ As the project is extending an existing code-base, the design decisions aimed to
 \section{AirSim Functional Overview} \label{05:Overview}
 Figure~\ref{ADA:Figure:OriginalOverview} shows a simplified overview of the important components in the original AirSim architecture. It is key to understand each of these components, as they are all updated throughout the project. 
 
-
-The project consists of 4 main components, Unity, which is written in C\# and contains most of the simulator logic, AirLib which is written in C++ and contains the server, the AirLib Wrapper which is written in C++ and acts as a bridge between AirLib and Unity, then finally the code where the user can interact with AirLib through the APIs. As this project is very modular, it gives the user the freedom and flexibility to choose a game engine and input language. 
-
-This section will contain a brief overview of each of the 4 components. This is to better understand the design decisions made in Section~\ref{05:ArchitecturalDesign}. Figure~\ref{05:stringList} shows an example of how the user interaction layer can interact with Unity. 
-
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{05_AnalysisAndDesign/Diagrams/OriginalOverview.png}
@@ -17,7 +12,13 @@ This section will contain a brief overview of each of the 4 components. This is 
     \label{ADA:Figure:OriginalOverview}
 \end{figure}
 
-\begin{figure}[h]
+The project consists of 4 main components, Unity, which is written in C\# and contains most of the simulator logic, AirLib which is written in C++ and contains the server, the AirLib Wrapper which is written in C++ and acts as a bridge between AirLib and Unity, then finally the code where the user can interact with AirLib through the APIs. As this project is very modular, it gives the user the freedom and flexibility to choose a game engine and input language. 
+
+This section will contain a brief overview of each of the 4 components. This is to better understand the design decisions made in Section~\ref{05:ArchitecturalDesign}. Figure~\ref{05:stringList} shows an example of how the user interaction layer can interact with Unity. Most APIs follow this layout.
+
+
+
+\begin{figure}[p]
     \centering
     \includegraphics[width=0.6\textwidth]{05_AnalysisAndDesign/Diagrams/stringArray.png}
     \caption{High-level overview of the API that fetches available vehicle types. For APIs that require arguments, these will be encoded and added to the API request. The main change between different API requests is what happens in Unity.} \label{05:stringList}
@@ -84,7 +85,7 @@ This project benefits in several ways when dividing the server. Firstly, as ment
 
 However, there are several limitations and disadvantages to this new approach. Firstly, if too many servers are launched the overhead will be too big and the performance would decrease. Currently, this is not an issue with only three servers, but with one server per entity, this could be slow. Secondly, if for example, a developer wants to use different means of communication for the APIs, rather than RPC, this would require several changes in multiple files. Finally, as this is a major change to the existing AirSim, pulling new features from the master repository will no longer be straightforward. 
 
-Overall the benefits still outweigh the disadvantages. As having multiple entities in the scene at once is a key part of this project, separating the APIs relating to the game from the APIs relating to the vehicle allows for this. This also works as a proof of concept if performance becomes an issue and a server per entity becomes needed. 
+Overall the benefits still outweigh the disadvantages. As having multiple entities in the scene at once is a key part of this project, separating the APIs relating to the game from the APIs relating to the vehicle allows for this. This also works as a proof of concept if performance becomes an issue and a server per entity becomes necessary. 
 
 
 %Why was this needed.
