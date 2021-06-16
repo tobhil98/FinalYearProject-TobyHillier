@@ -8,7 +8,7 @@ Figure~\ref{ADA:Figure:OriginalOverview} shows a simplified overview of the impo
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{05_AnalysisAndDesign/Diagrams/OriginalOverview.png}
-    \caption{High-level overview of the core components of AirSim used for this project. Only one server exists and all API calls are passed to it.}
+    \caption[High-level overview of AirSim]{High-level overview of the core components of AirSim used for this project. Only one server exists and all API calls are passed to it.}
     \label{ADA:Figure:OriginalOverview}
 \end{figure}
 
@@ -21,7 +21,7 @@ This section will contain a brief overview of each of the 4 components. This is 
 \begin{figure}[p]
     \centering
     \includegraphics[width=0.6\textwidth]{05_AnalysisAndDesign/Diagrams/stringArray.png}
-    \caption{High-level overview of the API that fetches available vehicle types. For APIs that require arguments, these will be encoded and added to the API request. The main change between different API requests is what happens in Unity.} \label{05:stringList}
+    \caption[Overview of an API call]{High-level overview of the API that fetches available vehicle types. For APIs that require arguments, these will be encoded and added to the API request. The main change between different API requests is what happens in Unity.} \label{05:stringList}
 \end{figure}
 
 \subsection{AirLib} \label{05:AirLib}
@@ -35,7 +35,7 @@ A wrapper is used for AirLib to communicate with Unity. Using a wrapper allows f
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{05_AnalysisAndDesign/Diagrams/UnityWrapper2.png}
-    \caption{A simplified view of how AirLib and the Unity Wrapper link together. UnityToAirSimCalls and PInvokeWrapper are red boxes to illustrate that they are only files containing functions. The other objects are classes. The black arrows show examples of functions calls. The details of how Unity starts the server is left out in this diagram.} \label{05:fig:UnityWrapper}
+    \caption[AirLib and AirLib Wrapper]{A simplified view of how AirLib and the Unity Wrapper link together. UnityToAirSimCalls and PInvokeWrapper are red boxes to illustrate that they are only files containing functions. The other objects are classes. The black arrows show examples of functions calls. The details of how Unity starts the server is left out in this diagram.} \label{05:fig:UnityWrapper}
 \end{figure}
 
 Figure \ref{05:fig:UnityWrapper} shows an example of how AirLib links to the Unity Wrapper. AirLib has an interface for the available APIs that are then overridden in the wrapper. These overridden member functions will then access the function pointers initialised at startup by Unity. This is done by having Unity call the InitServerManager with the arguments being the function pointers. As was explained in Section~\ref{05:AirLib}, the API interacts with the server initialised at startup. In this case, the server is stored in the SimulatorServer class and will call functions overridden from the ServerSimApiBase class. Unity can also make calls to the wrapper at runtime. These are done through the UnityToAirSimCalls. The figure shows a slightly simplified for how Unity can start and stop the server. To create the server, the wrapper creates a new instance of the ApiServerBase and initialises it with a pointer to the ServerSimApi. It is clear from this figure that another game engine can easily be used by changing the overridden functions. 
@@ -76,7 +76,7 @@ The decision to split the server in AirLib was the main change to the existing d
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{05_AnalysisAndDesign/Diagrams/UpdatedOverview.png}
-    \caption{Separate APIs into several servers on different ports. This makes it easier to expand the APIs and add additional features.}\label{05:SplitServer}
+    \caption[Updated overview of AirSim]{Separate APIs into several servers on different ports. This makes it easier to expand the APIs and add additional features.}\label{05:SplitServer}
 \end{figure}
 
 The division was done by replicating a simplified version of the server creation and then moving the APIs for the game state over to this one. As mentioned in the functional overview (Section~\ref{05:Overview}) AirLib has a lot of features that this project does not need. When replicating the server initialisation, these parts were left out. In Unity, the code was changed in such a way that at startup, the game server will start, and the user can communicate with the server, such as printing, spawning and deleting vehicles and pedestrians, and so on. When the first vehicle is spawned the server vehicle server will start, and when the last is deleted, the server will close. This behaviour is the same for the pedestrians. 

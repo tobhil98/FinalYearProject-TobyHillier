@@ -10,6 +10,13 @@ The first thing to look at is the inputs to the model. The common way when looki
 
 To further increase the performance, the angle was passed through different scaling functions. This can be seen in Figure~\ref{06:anglePlot}. The reason for doing this was to strengthen the input single for smaller angles. This would improve the performance for two reasons. Firstly, as the car cannot turn more than 60 degrees the input angle could be scaled in such a way that for larger angles the input would be close to 1. Passing the input angle through a tanh function strengthens the sensitivity for smaller angles. Therefore, the vehicles use $tanh(2.5x/180)$ where x is the angle. 
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{06_Implementation/00_MLAgents/Images/anglePlot.png}
+    \caption[Input angle functions]{The plot shows different functions applied to the input angle. The aim of using $tanh(2.5x/180)$ is that it decreases the change for larger angles, but increase for smaller.} \label{06:anglePlot}
+\end{figure}
+
+
 For the sensing APIs, the options are either to use raycasts or to use a camera sensor. The advantage of using raycasts is that network does not have to be as complex as for the image processing. Another advantage is that when building the simulator as a server build, enabling the rendering is slightly complicated and decreases the speed of the simulator. The advantage of using the camera sensor is that it can more accurately simulate the real environment as a complex network could distinguish what the camera is capturing.  In Unity, this is not needed as the rays can distinguish what type of object it is detecting. However, in the real world, this is impossible. The next step would be to calculate how many inputs from the raycasts there will be. The 3D rays come with several configurations\footnote{\url{https://github.com/Unity-Technologies/ml-agents/blob/main/docs/Learning-Environment-Design-Agents.md#raycast-observations}} such as the number of rays per direction, max ray degrees, detectable tags and observation stacking. The total size of the created observations is $(Observation Stacks) * (1 + 2 * Rays Per Direction) * (Num Detectable Tags + 2)$. Observation stacking can be used to give the network a limited short term memory. This is done by repeating observations from previous steps. For example, if the input from a sensor was
 \begin{equation}
   \begin{aligned}
@@ -35,6 +42,12 @@ The next two values to decide was the number of rays per direction and the sprea
 
 The last input that was given to the model was speed so that the model would have some understanding of its momentum. Ideally, the vehicle would use this to control how much braking was necessary. 
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{06_Implementation/00_MLAgents/Images/angle.jpg}
+    \caption[Angle visualisation]{The input angle to the model is the angle between the forward vector and the vector going from the vehicle to the target.} \label{06:angleDrawing}
+\end{figure}
+
 \subsubsection{Model outputs}
 The output of the model matches the vehicle controls. Therefore, The output consists of two values, one for the throttle and breaking and one for turning. The main design decision that had to be made was whether to discrete or continuous output values. Chapter~\ref{results} will look further into this, but basically discrete values work better. This is because the vehicle speed grows with the square root of the input value. Discrete values worked therefore better as they produce strong decisions. 
 
@@ -51,12 +64,6 @@ The output of the model matches the vehicle controls. Therefore, The output cons
 
 % Using GAIL and 
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{06_Implementation/00_MLAgents/Images/anglePlot.png}
-    \caption{} \label{06:anglePlot}
-\end{figure}
-
 \subsection{Learning Environments}
 When training using reinforcement learning it is important to have a good environment. Four different environments were used with increasing complexity. To help improve the robustness of the models, the start position and rotation would vary slightly between runs. 
 
@@ -72,7 +79,7 @@ The final training map (Figure~\ref{06:fig:MLMap3}) was designed as an intersect
 \centering
 \begin{subfigure}{\textwidth}
         \includegraphics[width=\linewidth, left]{06_Implementation/00_MLAgents/Images/MLMap1.JPG}
-        \caption{Simple training environment for the vehicles to drive around.}
+        \caption[Training environment map 1]{Simple training environment for the vehicles to drive around.}
         \label{06:fig:MLMap1}
     \end{subfigure}
 \end{minipage}
@@ -81,7 +88,7 @@ The final training map (Figure~\ref{06:fig:MLMap3}) was designed as an intersect
     \centering
     \begin{subfigure}{\textwidth}
         \includegraphics[width=\linewidth, right]{06_Implementation/00_MLAgents/Images/MLMap2.JPG}
-        \caption{A slightly more complex map where the vehicles would have to do both left and right turns.}
+        \caption[Training environment map 2]{A slightly more complex map where the vehicles would have to do both left and right turns.}
         \label{06:fig:MLMap2}
     \end{subfigure}
 \end{minipage}
@@ -93,7 +100,7 @@ The final training map (Figure~\ref{06:fig:MLMap3}) was designed as an intersect
 \centering
 \begin{subfigure}{\textwidth}
         \includegraphics[width=\linewidth, left]{06_Implementation/00_MLAgents/Images/MLMap3.JPG}
-        \caption{An intersection map to help the collaboration learning. }
+        \caption[Training environment map 3]{An intersection map to help the collaboration learning. }
         \label{06:fig:MLMap3}
     \end{subfigure}
 \end{minipage}
@@ -102,7 +109,7 @@ The final training map (Figure~\ref{06:fig:MLMap3}) was designed as an intersect
     \centering
     \begin{subfigure}{\textwidth}
         \includegraphics[width=\linewidth, right]{06_Implementation/00_MLAgents/Images/MLMap4.JPG}
-        \caption{Intersection map where a pedestrian meets a vehicle.}
+        \caption[Training pedestrians]{Intersection map where a pedestrian meets a vehicle.}
         \label{06:fig:MLMap4}
     \end{subfigure}
 \end{minipage}

@@ -1,12 +1,48 @@
-This chapter will explain in detail what the project requirements and expected deliverables are. 
-\section{Core Simulator Deliverables}
+The objective of this project is to create a simulation environment where mixed forms of traffic can interact with one another. The simulator should be able to be flexible in its use cases and have a large variety of features. It is also very important that the simulator is easy and intuitive to use.  
 
-\section{Mixed Traffic Interaction}
+The main goal is to have a good base platform on which users can conduct experiments. The users should have the flexibility of adding custom models and environments to the simulator. These steps must be straightforward. The project should also demonstrate how this can be done by looking at several alternatives. 
 
-\section{Environments}
+The system should also contain some machine learning models of mixed traffic interaction. This is used both to illustrate how this can be achieved, but also to show the complexity of the system. 
+
+\section{Simulator Requirements}
+The project should look at existing simulators and \textbf{compare} them against the following criteria.
+\begin{itemize}
+    \item \emph{Usability:} The simulator should be simple to set up and use.
+    \item \emph{Extensibility:} The simulator must be extendable. This means adding new features and modifying existing features should be possible. 
+    \item \emph{OS:} The simulator should run on Ubuntu.
+    \item \emph{Game Engine:} The game engine is the core component of a simulator. Using an outdated game engine could make future work challenging. Simulators with no game engines could be hard to understand and debug. 
+    \item \emph{Development:} The simulators would ideally be actively developed. This minimises the chances of running into issues later on with outdated libraries. 
+    \item \emph{Support:} If issues cannot be resolved having community support could be vital.
+\end{itemize}
+\\~\\
+\paragraph{}The simulator should have the \textbf{following features}:
+\begin{itemize}
+    \item \emph{Multiple Agents:} Having the simulator handle multiple agents is crucial to perform mixed traffic simulation. It does not however need to handle large crowds.  
+    \item \emph{Variety of Agents:} Adding new models and behaviour to the simulator should be a simple process. This should include pedestrians. 
+    \item \emph{Free movement:} The agents should be able to move freely around the environment. This means that they should not be restricted using any external rules. 
+    \item \emph{Customisable environments:} It should be straightforward to change the simulation environment. 
+    \item \emph{Controlling APIs:} It should be possible to control the agents from external programs. The control should include simple navigation, but also the ability to add and delete entities. 
+    \item \emph{Perception APIs:} These could include cameras or LIDARS. Perception APIs would be APIs that could give the user the ability to obtain an understanding of the agents' surrounding. 
+\end{itemize}
 
 
+\section{Environment requirements}
+This section will list the requirements decided for the environment:
+\begin{itemize}
+\item \emph{Real location:} It would be preferable to be able to replicate real locations. 
+\item \emph{Outdoors:} The environment should primarily be outdoors.
+\item \emph{Simplicity:} To create the environment should not be a challenging task. Importing the model into the simulator is down to the simulator itself, but the environment should be of a format that makes this easy. 
+\item \emph{Customisable:} The process of creating the maps should allow the user to modify the maps if needed. 
+\end{itemize}
 
-
+\section{Deliverables}
+The main deliverables for this project will be:
+\begin{itemize}
+    \item An analysis of available simulators with a conclusion for which one would be best to use for the project.
+    \item A flexible simulator that has the ability to easily add additional models and simulate mixed traffic.
+    \item A simulator with the incorporated sensing and controlling APIs.
+\item Scripts to demonstrate the features available to the simulator. 
+\item Documentation explaining how to use the APIs.
+\end{itemize}
 
 

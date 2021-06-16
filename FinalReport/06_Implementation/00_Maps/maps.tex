@@ -18,7 +18,7 @@ Wrld3D Unity SDK is a dynamic 3D mapping platform that can replicate indoor and 
 \centering
 \begin{subfigure}{\textwidth}
         \includegraphics[width=\linewidth, left]{06_Implementation/00_Maps/Images/MapBox1Cropped.JPG}
-        \caption{Imperial Campus loaded into Unity using the MapBox SDK. All objects have been given an arbitrarily texture. Also, the building scale is off.}
+        \caption[Map created using MapBox]{Imperial Campus loaded into Unity using the MapBox SDK. All objects have been given an arbitrarily texture. Also, the building scale is off.}
         \label{maps:figure:MapBox}
     \end{subfigure}
 \end{minipage}
@@ -27,7 +27,7 @@ Wrld3D Unity SDK is a dynamic 3D mapping platform that can replicate indoor and 
     \centering
     \begin{subfigure}{\textwidth}
         \includegraphics[width=\linewidth, right]{06_Implementation/00_Maps/Images/Wrld3D1Cropped.JPG}
-        \caption{Wrld3d has a tool online where you can look at the map before purchasing the SDK subscription. The image is a screenshot from this tool\footnote{\url{https://maps.wrld3d.com/?mapscene=632ba4b}}.}
+        \caption[Map created using Wrld3D]{Wrld3D has a tool online where you can look at the map before purchasing the SDK subscription. The image is a screenshot from this tool\footnote{\url{https://maps.wrld3d.com/?mapscene=632ba4b}}.}
         \label{maps:figure:Wrld3D}
     \end{subfigure}
 \end{minipage}
@@ -46,7 +46,7 @@ The disadvantage of using OSM2World is that it does not allows to render the obj
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.65\textwidth]{06_Implementation/00_Maps/Images/OSM1Cropped.JPG}
-    \caption{South Kensington Campus created using OpenStreetMap2World loaded into Unity}
+    \caption[Map created using OpenStreetMap2World]{South Kensington Campus created using OpenStreetMap2World loaded into Unity}
 \end{figure}
 
 More information on how to create an object file from OpenStreetMap can be found in the user guide~\ref{}.
@@ -60,7 +60,7 @@ The main advantage of using BlenderGIS over OSM2World is that BlenderGIS allows 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.65\textwidth]{06_Implementation/00_Maps/Images/BlenderGis1Cropped.JPG}
-    \caption{South Kensington Campus created using BlenderGis, then load into Unity. Some buildings are missing and the texture looks quite flat.}
+    \caption[Map created using BlenderGis]{South Kensington Campus created using BlenderGis, then load into Unity. Some buildings are missing and the texture looks quite flat.}
 \end{figure}
 
 More information on how to install and use the addon can be found in the user guide (Section~\ref{}).
@@ -75,7 +75,7 @@ However, there are several disadvantages to using this method. Firstly, creating
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{06_Implementation/00_Maps/Images/Google5Cropped.JPG}
-    \caption{South Kensington Campus loaded from Google Maps into Blender, then exported to Unity. Number of polygons reduced by 60\%}
+    \caption[Map created using Google Maps]{South Kensington Campus loaded from Google Maps into Blender, then exported to Unity. Number of polygons reduced by 60\%}
     \label{maps:figure:GoogleMaps}
 \end{figure}
 
@@ -95,6 +95,6 @@ If the visual is not important, using something like BlenderGis would work well.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{06_Implementation/00_Maps/Images/CombinedCropped.JPG}
-    \caption{BlenderGis and Google maps combined. Allows for smooth roads whilst keeping the aesthetics of the buildings}
+    \caption[Combined BlenderGis and Google Maps]{BlenderGis and Google maps combined. Allows for smooth roads whilst keeping the aesthetics of the buildings}
     \label{maps:figure:combined}
 \end{figure}

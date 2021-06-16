@@ -1,3 +1,4 @@
+This section will cover the background theory needed to understand the project. 
 \subsection{Physics Engines}
 The purpose of a physics engine is to allow programs to easily implement physics, without the creators having to implement their own from scratch every time. An example could be, if a program needed to calculate a trajectory, this formula could be implemented directly inside the physics engine \cite{millington2007game}. This is quite a simple example, but simulating basic particle distribution or fluid dynamics would be much more complex. 
 \\~\\
@@ -26,22 +27,31 @@ Unreal Engine is a fast-growing game engine created by Epic Games \cite{UnrealEn
 \\~\\
 UE4 has a variety of different use cases as well as for games. TV broadcasters such as Sky Sports and BBC are using Unreal Engine for their graphical match analysis \cite{UnrealEngine_LiveBroadcast}. Professional architects are also using the product to illustrate their creations \cite{UnrealEngine_Automative}.   
 \\~\\
-Unreal Engine 4 is free for personal use and businesses making less than \$1 million in gross revenue \cite{UE5}. The code for UE4 is available on GitHub\footnote{\url{https://github.com/EpicGames/UnrealEngine}} (For access to the repository you would need to sign up for an Epic Games account\footnote{\url{https://www.unrealengine.com/en-US/ue4-on-github}}). UE4 allows two different ways for developers to program their games. Either by using C++, which links with Visual Studio\footnote{\url{https://docs.unrealengine.com/en-US/ProductionPipelines/DevelopmentSetup/VisualStudioSetup/index.html}}, or by using blueprints as illustrated in Figure~\ref{UnrealEngineBlueprint}. Blueprints allow the creator most of the freedom code gives them, but in an easier drag and drop layout.
+Unreal Engine 4 is free for personal use and businesses making less than \$1 million in gross revenue \cite{UE5}. The code for UE4 is available on GitHub\footnote{\url{https://github.com/EpicGames/UnrealEngine}} (For access to the repository you would need to sign up for an Epic Games account\footnote{\url{https://www.unrealengine.com/en-US/ue4-on-github}}). UE4 allows two different ways for developers to program their games. Either by using C++, which links with Visual Studio\footnote{\url{https://docs.unrealengine.com/en-US/ProductionPipelines/DevelopmentSetup/VisualStudioSetup/index.html}}, or by using blueprints as illustrated in Figure~\ref{UnrealEngineBlueprint} in the appendix. Blueprints allow the creator most of the freedom code gives them, but in an easier drag and drop layout.
 \\~\\
 The majority of the simulators that will be looked at later use Unreal Engine as their game engine. 
-
-\begin{figure}[H] 
-    \centering
-    \includegraphics[width=0.5\textwidth]{OtherImages/UEBlueprint.png}
-    \caption{Source: \url{https://docs.unrealengine.com/en-US/ProgrammingAndScripting/Blueprints/UserGuide/Timelines/Examples/OpeningDoors/index.html}}    \label{UnrealEngineBlueprint}
-
-\end{figure}
 
 \subsubsection{Unity}
 Unity is currently the most commonly used game engine with over 2.5 million registered developers \cite{Unity_arnia_software}. Unity is developed by Unity Technologies and was first released in June 2005.  Over 60\% of augmented- and virtual reality games are created using Unity \cite{GameEngine_UnityGame_book}. 
 \\~\\
-Unity is free for personal and educational projects. To create the game, Unity allows a lot of features to be used through the GUI, but for full freedom, the creator would need to program in C\#. Unity however provides lots of resources to learn C\#. Unity also combines with Visual Studio where the IntelliSense can help with recommending functions to use as well as spot errors\footnote{\url{https://docs.microsoft.com/en-us/visualstudio/gamedev/unity/get-started/getting-started-with-visual-studio-tools-for-unity}}.
+Unity is free for personal and educational projects. To create the game, Unity allows a lot of features to be used through the GUI, but for full freedom, the creator would need to program in C\#. Unity provides lots of resources to learn C\#. Unity also combines with Visual Studio where the IntelliSense can help with recommending functions as well as debugging\footnote{\url{https://docs.microsoft.com/en-us/visualstudio/gamedev/unity/get-started/getting-started-with-visual-studio-tools-for-unity}}.
 
+What follows is a list of some of the terms used in this report to describe features in Unity\cite{unityGlossary}:
+\begin{itemize}
+\item \emph{Scene} - In Unity several scenes can exist. This is the area where the environment is built. A scene usually consists of a camera, a light source and whatever the user wants in the environment. 
+\item \emph{Asset} - Assets is an item that can be used in the simulator. This could be an image, a 3D model or an audio file. 
+\item \emph{GameObject} - This is the funcamental object in a scene. A game object can represent a character, a building, a camera or something else. The GameObjects functionality is decided by the components attached to it. 
+    \item \emph{Prefab} - This is a saved collection of GameObejcts. An example of this would be the vehicles which consists of different game objects such as the body and wheels. 
+ \item \emph{Asset Store} - This is a website run by Unity where users can download both free and paid assets. 
+ \item \emph{ML-Agents} - This is a machine learning framework that can be added to Unity which will help train the models reinforcement learning using PyTorch. 
+ \item \emph{Tick Speed} - This is how fast the simulator is running. A tick is an update in the simulation. This is measured at frames per second. The simulator usually runs at about 120 ticks per second, but more computational intensive tasks can decrease this. The tick speed can also be increased when training machine learning models to speed up learning, or set to 0 to pause the simulator. 
+\end{itemize}
+
+\subsection{Blender}
+Blender is an open-source tool that allows creators to render, model and animate objects \cite{EzraThessMendozaGuevarra2019MaAU}. Blender is currently one of the most popular free modelling tools available \cite{MendozaGuevarraEzraThess2020CGEi}. There are also lots of available plugins for Blender which allow to further extend the software. For this project, Blender will mainly be used to create the environments. This is because it has tools that can optimise the polygons which is how the models are constructed. By decreasing the number of polygons it becomes increasingly easy to compute for the game engine. Blender also gives the user the full freedom to customise the models which cannot be done in the game engine.  
+%Remderomg
+%Modeling
+%Animation
 
 \subsection{Levels of Automation}
 When talking about autonomous systems, it is important to know the different levels of autonomy. The modern day Tesla cars are level 3, which means they can be driven autonomously for the majority of the time, but do need a human driver as a fallback system \cite{teslaSelf, Bagloee2016}.
@@ -55,7 +65,8 @@ When talking about autonomous systems, it is important to know the different lev
 4     & High Automation        & Vehicle almost fully automated           \\
 5     & Full Automation        & Vehicle never needs human input
 \end{tabular}
-\caption{Source: \url{https://link.springer.com/article/10.1007/s40534-016-0117-3\#Sec3}}
+\caption[Levels of Automation]{The table shows the various levels of autonomous systems.}
+\source{\url{https://link.springer.com/article/10.1007/s40534-016-0117-3\#Sec3}}
 \end{table}
 
 For this project all our simulations will be level 5. 
@@ -72,6 +83,7 @@ API stands for Application Programming Interface. This will allow a program to c
 In the case of our simulators, APIs will be used to communicate between an external program and the simulator itself. These communications could contain information for how to control the agent, or it could contain information from what the agent observes. 
 
 \subsection{Digital Twin}
+A digital twin is a term used to represent a real-time digital model of a physical system \cite{alma991000321338701591}. The model will continually adapt to changes in the environment using real physical sensors. There are several advantages of a digital twin. Firstly it can be used to predict what is going to happen to the physical system. Secondly, it can act as a testing environment without damaging the real-life object. What follows is a list of some of the terms used in this report to describe features in Unity
 
 \subsection{Machine Learning}
 \subsubsection{Reinforcement Learning}
@@ -80,5 +92,4 @@ In the case of our simulators, APIs will be used to communicate between an exter
 
 \subsubsection{Collaboration Learning}
 
-\subsection{Blender}
 %Training machine learning models will be mentioned a few times when looking at the simulators.
