@@ -12,7 +12,7 @@
 \newcommand{\reporttype}{Final Year Project 2021}
 \newcommand{\cid}{01412520}
 
-\newcommand{\supervisor}{Prof Yannis K. Demiris}
+\newcommand{\supervisor}{Prof Yiannis K. Demiris}
 \newcommand{\supervisorassistant}{Dr Xingchen Zhang}
 \newcommand{\secondmarker}{Prof Deniz Gunduz}
 
@@ -63,7 +63,7 @@
 \input{03_Background/SimulatorResearch}
 
 %%%%%%%%%%%%%%%%% Requirements Capture
-\chapter{Requirements Capture}
+\chapter{Requirements Capture} \label{ReqCap}
 \input{04_RequirementsCapture/Requirements}
 
 
@@ -73,12 +73,12 @@
 
 
 %%%%%%%%%%%%%%%%% Implementation
-\chapter{Implementation}
+\chapter{Implementation} \label{implementation}
 \input{06_Implementation/Implementation}
 
 
 %%%%%%%%%%%%%%%%% Testing
-\chapter{Testing and Results}
+\chapter{Testing and Results}\label{results}
 \input{08_Results/Results}
 
 
@@ -88,8 +88,11 @@
 
 
 %%%%%%%%%%%%%%%%% Evaluation
-\chapter{Conclusions and Further Work}
-%\input{12_ConclusionsAndFutherWork/}
+\chapter{Conclusions}
+\input{12_ConclusionsAndFurtherWork/Conclusion}
+
+\chapter{Further Work}
+\input{12_ConclusionsAndFurtherWork/Extensions}
 
 
 %%%%%%%%%%%%%%%%% User Guide
@@ -105,13 +108,17 @@
 
 \begin{appendices}
 \appendix
-\chapter{Background Theory}
+\chapter[Background Theory Diagrams]{Background Theory}
 \input{03_Background/Appendix/MonobehaviorFlow}
-\chapter{Simulator Research} \label{SimulatorResearch}
+\chapter[Indepth Simulator Research]{Simulator Research} \label{SimulatorResearch}
 \input{03_Background/Appendix/AppendixSimulatorResearch}
+
+\chapter{Ethical, Legal and Safety Considerations}
+\input{14_Considerations/ELS_Plan}
 
 \chapter{User Guide} \label{UserGuide}
 \input{13_UserGuide/UserGuide}
+
 
 
 \end{appendices}

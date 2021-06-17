@@ -1,4 +1,31 @@
-This chapter will look at what has been achieved and evaluate this against the requirement capture (Chapter~\ref{}). 
+This chapter will look at what has been achieved and evaluate this against the requirement capture (Chapter~\ref{ReqCap}).
+
+The first part of this project was to analyse the existing simulator options. This was the main research part of the project. A surprisingly large number of simulators were applicable for this project, but eventually AirSim, Carla and Gazebo turned out to be the best options. Even though Carla had all the features this project was looking for Unreal Engine would not run on this Ubuntu set-up as the NividaGTX 780M graphics card could not handle Nvidia Vulkan drivers. AirSim was chosen over Gazebo as a traffic simulator were more applicable in regards to the requirements. 
+
+The other early decision that had to be made was which game engine to use. Unity was chosen for two reasons. Firstly, it is a simple platform with lots of additional libraries that could be used to further enhance the environment. Secondly, as the Unity build was only a prototype version, only the essential features had been implemented.
+
+AirSim with Unity covers all of the requirements looked at in Section~\ref{simRequirements}. 
+\begin{itemize}
+    \item \emph{Usability:} The simulator is simple to build by only running one script and then importing the model into Unity. Also, as mentioned before, adding new models is a straightforward process. 
+    \item \emph{Extensibility:} The simulator is proven to be extensible as most of the features requested have been added to the simulator. 
+    \item \emph{OS:} The simulator has been run on both Windows and Ubuntu. Having a cross-platform simulator is very useful as it makes working on different computers much easier. 
+    \item \emph{Game Engine:} The simulator allows for several backends, but Unity was the one chosen.
+    \item \emph{Development:} Updates to AirSim have been added from the main repository whilst the project was worked on. Currently, there are breaking changes in a pull request to this project which have not been merged. 
+    \item \emph{Support:} The support was not needed, but this was a great place for finding how to implement for example the APIs. 
+\end{itemize}
+The simulator covers all of the requirements well.
+
+The next part was to implement the missing features. 
+\begin{itemize}
+    \item \emph{Multiple Agents:} The simulator can easily handle multiple agents in the current design. 
+    \item \emph{Variety of Agents:} Several different kinds of vehicles were added such as trucks and sports cars. 
+    \item \emph{Free movement:} The agents are completely free and are not affected by any other rules than physical ones. This means that the cars can drive on the pavement, but they would not be able to drive through other cars or buildings.
+    \item \emph{Customisable environments:} The difficulty of adding custom maps depend on what kind of map the user wants. The simplest option is to drag models straight into the simulator whilst the textured maps require a bit more work.
+    \item \emph{Controlling APIs:} This is probably where the project has more potential. Currently, only APIs which directly control the entity are in place. This means that the controller can request the entity to go forward or turn left. There is no API in place yet which allows users to say go forward for 10 units. Ideally, the vehicle models could be added to these APIs to let the cars drive around autonomously. The models are however not accurate enough for that yet.  
+    \item \emph{Perception APIs:} The simulator has two APIs available for perception. One is a camera that can have several different modes, and the other is a LIDAR sensor. The LIDAR sensor is quite primitive at the moment as it only returns results from fixed points which currently are not customisable. 
+\end{itemize}
+
+Overall this project has created an open environment where mixed forms of traffic can interact with each other.  Choosing AirSim with Unity has turned out to be a great decision. Even though the codebase was quite large, it was a lot easier to understand than the code for Unreal Engine. As Unity was a plugin it allowed for additional tools to be used such as ML-Agents and the Map SDKs. This has allowed for some very complex features which would not have been possible if they had to be implemented from scratch. 
 
 
 % Originally using UE but then moving to Unity

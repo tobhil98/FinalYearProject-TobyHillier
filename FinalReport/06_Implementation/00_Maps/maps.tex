@@ -1,10 +1,10 @@
 This section will look at different ways of importing or creating city maps in Unity. The purpose of this is to give the agents an environment that more accurately replicates the real world. There are two main ways of doing this. The first option is loading the maps in at runtime. This option would give the agent an unbounded area to navigate around. The second option is to create a Unity asset. This option allows the user to create a 3D model of the environment and load the object into the scene at compile time.  
 \subsection{Unity Map SDKs}
-There are several different Map SDKs available for Unity. The advantage of using an SDK over an asset is that it allows the user to navigate any place. As the agent navigates around, new areas of the map will be loaded. Another advantage is that the maps are updated and can provide real information such as traffic congestion. A disadvantage is that these maps need to be download at runtime. This requires access to the internet and can be slow to load. Another disadvantage is that these services are subscription-based. This means that there is a limit to the number of requests that can be made \cite{}.
+There are several different Map SDKs available for Unity. The advantage of using an SDK over an asset is that it allows the user to navigate any place. As the agent navigates around, new areas of the map will be loaded. Another advantage is that the maps are updated and can provide real information such as traffic congestion. A disadvantage is that these maps need to be download at runtime. This requires access to the internet and can be slow to load. Another disadvantage is that these services are subscription-based. This means that there is a limit to the number of requests that can be made \footnote{\url{https://www.mapbox.com/pricing/}}.
 
 \subsubsection{Google Maps Unity SDK}
 
-Google Maps Unity SDK contains several developer tools which allow the user to create mobile games with real-world locations\cite{google_maps_sdk_platform}. The advantage of using this SDK is that it provides additional tools such as the ability to extract place IDs as well as the name of geographic features. The SDK also includes real-world features from particular locations. (Appendix~\ref{Appendix_Maps} - Figure~\ref{figure:maps:GoogleMapsSDK_Liberty}). The disadvantage with the Google Maps SDK is that it currently only supports mobile applications. The simulator is primarily designed to run on a computer so this SKD would therefore not work for this project. 
+Google Maps Unity SDK contains several developer tools which allow the user to create mobile games with real-world locations\cite{google_maps_sdk_platform}. The advantage of using this SDK is that it provides additional tools such as the ability to extract place IDs as well as the name of geographic features. The SDK also includes real-world features from particular locations. The disadvantage with the Google Maps SDK is that it currently only supports mobile applications. The simulator is primarily designed to run on a computer so this SKD would therefore not work for this project. 
 
 \subsubsection{MapBox Unity SDK} 
 The MapBox Unity SDK is a toolbox that can be used to create worlds with continuous road networks, points of interests and street labels. It also can use satellite images to create realistic terrain. The advantage of the MapBox SDK is that it is free and easy to set up. The disadvantage is that the generated textures do not look as good as other map options. There are also some missing buildings as can be seen from Figure~\ref{maps:figure:MapBox}. MapBox does allow the users to modify the maps online, but this has to be approved before the maps are updated.  
@@ -35,7 +35,7 @@ Wrld3D Unity SDK is a dynamic 3D mapping platform that can replicate indoor and 
 
 \FloatBarrier
 \subsection{Unity Map Assets}
-Loading map assets into Unity requires more initial work as they require 3rd party tools. An advantage of creating assets is that it gives the user the freedom to modify the maps before importing them into the simulator. Blender is commonly used as a free program for creating and modifying 3D models\cite{MendozaGuevarraEzraThess2020CGEi}(Section~\ref{Blender}). Another advantage is that the maps are loaded at compile-time. This means that the model loads quickly and the simulator does not require access to the internet. The disadvantage is that the agents will be limited to only that environment. Large maps can be computationally hard to render and cause the simulator to lose performance. This is due to the large polygon count which requires more memory and CPU usage. (More information in the User Guide Section~\ref{}). Depending on the method used to create the models, creating better-looking options using Blender can be very time-consuming and requires additional skills to use the tool. 
+Loading map assets into Unity requires more initial work as they require 3rd party tools. An advantage of creating assets is that it gives the user the freedom to modify the maps before importing them into the simulator. Blender is commonly used as a free program for creating and modifying 3D models\cite{MendozaGuevarraEzraThess2020CGEi}(Section~\ref{blender}). Another advantage is that the maps are loaded at compile-time. This means that the model loads quickly and the simulator does not require access to the internet. The disadvantage is that the agents will be limited to only that environment. Large maps can be computationally hard to render and cause the simulator to lose performance. This is due to the large polygon count which requires more memory and CPU usage. (More information in the User Guide Section~\ref{UserGuide}). Depending on the method used to create the models, creating better-looking options using Blender can be very time-consuming and requires additional skills to use the tool. 
 
 
 \subsubsection{OpenStreetMap2World}
@@ -49,7 +49,7 @@ The disadvantage of using OSM2World is that it does not allows to render the obj
     \caption[Map created using OpenStreetMap2World]{South Kensington Campus created using OpenStreetMap2World loaded into Unity}
 \end{figure}
 
-More information on how to create an object file from OpenStreetMap can be found in the user guide~\ref{}.
+More information on how to create an object file from OpenStreetMap can be found in the user guide (Chapter~\ref{UserGuide} in the appendix).
 \subsubsection{BlenderGis}
 BlenderGis is an open-source Blender addon that allows users to import GIS (geographic information system) files. The addon includes the option to download a map area from either Google or OpenStreetMaps directly into Blender without having to download the GIS files externally. One advantage of using BlenderGis over OSM2World is that GIS files include the world heightmap. This means that this method can more accurately map the terrain. 
 
@@ -63,10 +63,8 @@ The main advantage of using BlenderGIS over OSM2World is that BlenderGIS allows 
     \caption[Map created using BlenderGis]{South Kensington Campus created using BlenderGis, then load into Unity. Some buildings are missing and the texture looks quite flat.}
 \end{figure}
 
-More information on how to install and use the addon can be found in the user guide (Section~\ref{}).
-
 \subsubsection{Google Maps GPU Intercept}
-For personal projects, Google Maps' 3D view can be imported into Blender. These steps are quite convoluted, but the user guide (Section~\ref{}) explains how to do this in more detail. In essence, renderDoc can be used to intercept the data going from Google Chrome to the GPU. This data can then be loaded into Blender by using MapsModelImporter\footnote{\url{https://github.com/eliemichel/MapsModelsImporter}}. This step can take a long time as many polygons have to be loaded. Once the map has been imported into Blender, the user can freely update the model. One update that should be made is to reduce the polygon count. Blender has a tool for this. This is needed as there are several thousand polygons, and this process can remove almost half without a noteworthy difference (Figure~\ref{maps:figure:GoogleMaps}). Finally, the model along with the textures can be exported to Unity. 
+For personal projects, Google Maps' 3D view can be imported into Blender. These steps are quite convoluted, but the user guide (Chapter~\ref{UserGuide} in the appendix) explains how to do this in more detail. In essence, renderDoc can be used to intercept the data going from Google Chrome to the GPU. This data can then be loaded into Blender by using MapsModelImporter\footnote{\url{https://github.com/eliemichel/MapsModelsImporter}}. This step can take a long time as many polygons have to be loaded. Once the map has been imported into Blender, the user can freely update the model. One update that should be made is to reduce the polygon count. Blender has a tool for this. This is needed as there are several thousand polygons, and this process can remove almost half without a noteworthy difference (Figure~\ref{maps:figure:GoogleMaps}). Finally, the model along with the textures can be exported to Unity. 
 
 The advantage of using this method is that it looks a lot better than the other options. There is also a lot more detail which makes the environment more realistic. This can be useful when training machine learning models as the trained model would not overfit to a perfect environment. 
 
@@ -95,6 +93,6 @@ If the visual is not important, using something like BlenderGis would work well.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{06_Implementation/00_Maps/Images/CombinedCropped.JPG}
-    \caption[Combined BlenderGis and Google Maps]{BlenderGis and Google maps combined. Allows for smooth roads whilst keeping the aesthetics of the buildings}
+    \caption[Combined BlenderGis and Google Maps]{BlenderGis and Google maps combined. Allows for smooth roads whilst keeping the aesthetics of the buildings. Downside is that its computationally intensive to run and file size over 100MB.}
     \label{maps:figure:combined}
 \end{figure}

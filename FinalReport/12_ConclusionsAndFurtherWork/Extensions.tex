@@ -1,8 +1,19 @@
-The extensions for the project have not yet been defined, but there are a variety of different options. The current plan is to implement the features required in AirSim and then use them in an extension task. Listed below are some of the suggestions which have been discussed in the supervisor meetings. 
+This chapter consists of two sections. The first section will look at what needs to be done to the existing simulator to improve the quality. The second section will look at future use cases for the simulator.  
+
+\section{Simulator extension}
+The first thing would be to further improve the ML-Agent model. The existing model can drive around, but not in a reliable way. More training and further parameter tuning would be needed. Also, training the pedestrians so that the interaction between pedestrian and vehicles can be simulated. Currently, the interaction is only handled through the APIs.
+
+The next step would be to add more controlling APIs to the simulator. Being able to give the pedestrians more relaxed information such as walk forward but pause if something is in front would be very beneficial. This would be the same for the vehicles. Currently, the simulator is only a platform where all of these things have to be manually controlled or controlled through external programs using the APIs.
+
+Another big improvement would be to optimise the video stream even further. This could potentially be done by using UDP streaming. However, as the image capturing has to be done on the main thread, this could be an unsolvable problem until Unity upgrades its game engine. 
+
+Lastly, there are a lot more features in AirLib which have not yet been added to AirSim. More advanced weather, additional sensors and several APIs that exist in Unreal Engine but not in Unity could be added. 
+
+
+\section{Use cases}
+One option would be to try to use the simulator alongside an external sensor, like a traffic camera, to create a digital twin of the real environment. There are several use cases for this. Firstly, it could detect dangerous driving and report it to the police. This could both make people drive more safely as they know they are being surveyed, as well as making it possible to stop dangerous driving early on. It could also be used to track dangerous traffic junctions to monitor and detect near-collisions. 
 \\~\\
-One option would be to try to use the simulator alongside another final year project to simulate the live feed from traffic cameras. There are several use cases for this. Firstly, it could detect dangerous driving and report it to the police. This could both make people drive more safely as they know they are being surveyed, as well as making it possible to stop dangerous driving early on. It could also be used to track dangerous traffic junctions to monitor and detect near-collisions. 
-\\~\\
-Another option could be to simulate an autonomous wheelchair which exists in the Imperial Robotics Lab. By modeling the wheelchair in AirSim we could try to create an autonomous system and then compare it to the behavior in real life.
+Another option could be to simulate an autonomous wheelchair that exists in the Imperial Robotics Lab. By modelling the wheelchair in AirSim we could try to create an autonomous system and then compare it to the behaviour in real life.
 \\~\\
 A third example could be to try to train a machine learning model for an autonomous robot so that it could navigate around crowded places with cars and pedestrians \cite{ChaoQianwen2015Vifm}. 
 \\~\\

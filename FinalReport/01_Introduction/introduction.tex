@@ -11,15 +11,13 @@ Another advantage of using a simulator is that you can learn from doing mistakes
 \\~\\ 
 The autonomous system does not have to be a vehicle, but anything that can artificial control itself. These could for example be mobile robots/wheelchairs or artificial controlled humans and cyclists. 
 \\~\\ 
-This project will consist of three main parts. The first one being to research available simulators (Section~\ref{analysisOfSimulators}). This will be necessary to get a good starting point for the project. Working on an existing simulator that is too complex would mean that it would take too long to get basic features working. Whilst working on a simulator that does not have enough features will mean that too much time will be spent implementing something that another simulator will already have implemented. Exactly what these features are will be clarified in the Project Specification chapter (Chapter~\ref{ProjectSpec}). 
+This project will consist of three main parts. The first one being to research available simulators (Section~\ref{analysisOfSimulators}). This will be necessary to get a good starting point for the project. Working on an existing simulator that is too complex would mean that it would take too long to get basic features working. Whilst working on a simulator that does not have enough features will mean that too much time will be spent implementing something that another simulator will already have implemented. Exactly what these features are will be clarified in the Requirements Capture chapter (Chapter~\ref{ReqCap}). 
 The second part will be to implement the missing features from the simulator that we selected to work on.
-And the last part will be to determine what to do next with the simulator after the missing features have been implemented. This is still open-ended, but some of the potential use cases will be discussed in the Implementation section (Section~\ref{FuturePlanning}).
+And the last part will be to try to simulate the mixed traffic interaction (Section~\ref{MLAgents}).
 \\~\\ 
 The product generated from this project could be used for a variety of different use cases. Firstly it could be used to test the software for an autonomous system. Testing autonomous systems in a simulator would be much faster than trying to check for corner cases in real life. Another example would be to train a machine learning model. The simulator will aim to be a diverse tool to accommodate a variety of needs. 
 
-\section{Project Specification} \label{ProjectSpec}
-This section covers a brief description of the project outline. 
-\subsection{Objectives} \label{Objectives}
+\section{Project Objectives} \label{ProjectSpec}\label{Objectives}
 The objectives of the project are: 
 \begin{itemize}
     \item Survey the current state of the art in vehicle and mobile robot simulation and evaluate current simulators (e.g. CARLA, CrowdSim3D, Gazebo), list and understand the underlying simulation methodologies (e.g. types of physics engine), and understand and document their advantages and disadvantages, particularly in terms of their sensing and control abilities.
@@ -35,10 +33,24 @@ The objectives of the project are:
 
 
 \section{Report Outline}
+This report aims to introduce the project, show the necessary background research and explain in detail the design decisions and work done to achieve the desired result. This report consists of 9 chapters with 4 appendices. 
+
+\begin{itemize}
+    \item This \emph{Introduction} describes the context of the underlying problem the project will try to solve as well as the project outline.
+\item The \emph{Background} chapter will look into the motivation for doing this project.  The chapter will also introduce the technical tools and theory needed to understand the project. This will include looking at what a game engine is, as well as briefly looking at the two major game engines used by most simulators. Thereafter comes an analysis of the simulators that have been studied with a conclusion for which simulator was chosen for this project.
+\item The \emph{Requirements Capture} chapter will cover the requirements and deliverables expected from this project. 
+\item The \emph{Analysis and Design} chapter will provide a functional overview of AirSim as well as an explanation of the architectural design and limitations of the project. 
+\item The \emph{Implementation} chapter will study the three main components of the project. The first part will explain which features were added to the chosen simulator AirSim and how. The second part will look at how Unity's ML-Agents was used to implement Reinforcement Learning. The third part will examine how to create maps and environments for the simulator. 
+\item The \emph{Testing and Results} chapter will look at how the simulator was tested and briefly what results from the autonomous vehicles using ML-Agents produce. 
+\item The \emph{Evaluation} chapter will compare the outcome of the project against the requirements specified in the Requirements Capture chapter. 
+\item The \emph{Conclusion} chapter will present a short summary of the project outcome and challenges faced. 
+\item The \emph{Future Work} chapter looks at ways of extending and improving AirSim as well as future use cases for the simulator. 
+\item The \emph{Appendix} consists of 4 chapters where chapter B and D are the most important. Chapter B covers the indepth analysis of all the simulators researched. Chapter D is the user guide explaining in slightly more detail how to build and run the tools and programs mentioned. 
+\end{itemize}
 
 
 %This is the interim report for my master's thesis titled "Mixed Traffic Simulation for Autonomous Systems in Shared Spaces". The report aims to present the initial background research and early implementation results \cite{studentGuideline}. The report will contain the following sections as suggested in the project guide:
-%\\ \tab The \emph{Introduction} chapter will establish the project outline and the expected deliverables. The chapter will also describe the context of the underlying problem the project will try to resolve.
+%\\ \tab The \emph{Introduction} chapter will establish the project outline and the expected deliverables. The chapter will also de.
 %\\ \tab The \emph{Background} chapter will first introduce the technical tools and theory needed to understand the project. This will include looking at what a game engine is, as well as briefly looking at the two major game engines used by most simulators. Thereafter comes an analysis of the simulators that have been studied with a conclusion for which simulator was chosen for this project. 
 %\\ \tab The \emph{Implementation} chapter will describe what work has been done in regards to the chosen simulator. The chapter will also contain an evaluation plan for how the project deliverables will be evaluated. In addition, the chapter will show the estimated timeline and possible extensions. 
 %\\ \tab And finally the \emph{Ethical, Legal and Safety Considerations} chapter which will look if there are any ethical legal or safety concerns both in regards to the project as is, but also briefly with potential extensions.

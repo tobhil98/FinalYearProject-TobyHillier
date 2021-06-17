@@ -1,0 +1,11 @@
+Overall this project successfully implemented a traffic simulator that could simulate mixed traffic as required. AirSim was selected as the simulator to extend over many others. Most of the missing features were then added to the simulator. AirSim had a big diverge from the original version when the server was divided into 3 parts. This was done to allow for future possibilities where each vehicle would have its server. This split also made it simple to add completely new types of vehicles with a different set of controls and APIs. 
+
+The next big part of the project was to train the ML agents. The vehicles are far from perfect, but they have definitely learnt to follow limit contact with the wall and drive towards the target. 
+
+For this project, most of the time was spent trying to get used to tools and programs. It took a long time at the starts to get an understanding of how the AirLib code works as there was no guide over the code architecture. Trying to understand the code base whilst having to do other unrelated work made it harder. Also, getting used to tools like Unity and Blender took time. Some time was used customising the environments in Blender to make them look better which could be used in a demonstration.
+
+The biggest coding challenge was dividing the server. This meant that a lot of code had to be understood, moved or modified. This was important to get working as making the simulator more easily extendable was a key part. 
+
+A lot of time was spent researching and understanding GAIL and collaboration learning for the ML-Agents part of the project. Most evening several models have been training on lab computers. Due to slow internet and not being able to go into uni, made it very difficult to fix bugs, as uploading the build took several hours, and the environment could not be trained on this computer. 
+
+Overall this was an ambitious project that has tried a lot of different tools and features and combined them into one simulator. For a perfect system, more APIs could have been added to control the vehicles and the ML agents could have had better performance. However, this project was not looking for an optimal solution, but rather a prototype consisting of a large range of features. 
