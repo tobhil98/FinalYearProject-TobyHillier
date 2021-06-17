@@ -12,9 +12,9 @@
 \newcommand{\reporttype}{Final Year Project 2021}
 \newcommand{\cid}{01412520}
 
-\newcommand{\supervisor}{Prof Y.K. Demiris}
-\newcommand{\supervisorassistant}{Dr X. Zhang}
-\newcommand{\secondmarker}{Prof D. Gunduz}
+\newcommand{\supervisor}{Prof Yiannis K. Demiris}
+\newcommand{\supervisorassistant}{Dr Xingchen Zhang}
+\newcommand{\secondmarker}{Prof Deniz Gunduz}
 
 
 % include files that load packages and define macros
@@ -37,6 +37,10 @@
 
 
 \tableofcontents
+\cleardoublepage
+\listoffigures
+\cleardoublepage
+\listoftables
 \input{00_Preamble/acronyms}
 
 \newpage
@@ -49,54 +53,49 @@
 %%%%%%%%%%%%%%%%% BACKGROUND
 \chapter{Background}
 
-\section{Purpose of a Mixed Traffic Simulator}
+\section{Motivation}
 \input{03_Background/Purpose}
 
 \section{Background Theory}
 \input{03_Background/BackgroundTheory}
 
-\section{Analysis of Existing Simulators}  % \label{BackgroundLit} \label{AoCP}
+\section{Analysis of Existing Simulators} \label{analysisOfSimulators} % \label{BackgroundLit} \label{AoCP}
 \input{03_Background/SimulatorResearch}
 
 %%%%%%%%%%%%%%%%% Requirements Capture
-\chapter{Requirements Capture}
+\chapter{Requirements Capture} \label{ReqCap}
 \input{04_RequirementsCapture/Requirements}
 
 
 %%%%%%%%%%%%%%%%% Analysis and Design
-\chapter{Analysis and Design}
+\chapter{Analysis and Design} \label{design}
 \input{05_AnalysisAndDesign/AnalysisAndDesign}
 
 
 %%%%%%%%%%%%%%%%% Implementation
-\chapter{Implementation}
+\chapter{Implementation} \label{implementation}
 \input{06_Implementation/Implementation}
 
 
 %%%%%%%%%%%%%%%%% Testing
-\chapter{Testing}
-%\input{07_Testing/}
-
-
-%%%%%%%%%%%%%%%%% Results
-\chapter{Results}
+\chapter{Testing and Results}\label{results}
 \input{08_Results/Results}
-
 
 
 %%%%%%%%%%%%%%%%% Evaluation
 \chapter{Evaluation}
-%\input{09_Evaluation/}
+\input{09_Evaluation/Evaluation}
 
 
 %%%%%%%%%%%%%%%%% Evaluation
-\chapter{Conclusions and Further Work}
-%\input{12_ConclusionsAndFutherWork/}
+\chapter{Conclusions}
+\input{12_ConclusionsAndFurtherWork/Conclusion}
+
+\chapter{Further Work}
+\input{12_ConclusionsAndFurtherWork/Extensions}
 
 
 %%%%%%%%%%%%%%%%% User Guide
-\chapter{User Guide}
-\input{13_UserGuide/UserGuide}
 
 
 \newpage
@@ -109,10 +108,17 @@
 
 \begin{appendices}
 \appendix
-\chapter{Background Theory}
+\chapter[Background Theory Diagrams]{Background Theory}
 \input{03_Background/Appendix/MonobehaviorFlow}
-\chapter{Simulator Research}
+\chapter[Indepth Simulator Research]{Simulator Research} \label{SimulatorResearch}
 \input{03_Background/Appendix/AppendixSimulatorResearch}
+
+\chapter{Ethical, Legal and Safety Considerations}
+\input{14_Considerations/ELS_Plan}
+
+\chapter{User Guide} \label{UserGuide}
+\input{13_UserGuide/UserGuide}
+
 
 
 \end{appendices}
